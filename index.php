@@ -19,8 +19,8 @@ if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > $
 
 $_SESSION['last_activity'] = time(); // Обновляем время последней активности
 
-include "answer_script.php";
-require_once "get_bg.php";
+include "assets/api/answer_script.php";
+require_once "assets/api/get_bg.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -51,7 +51,7 @@ require_once "get_bg.php";
 
 <body class="login-page sidebar-collapse" style="background-image: url('data:image/jpeg;base64,<?php echo($bg);?>'); background-size:cover; background-repeat:no repeat;">
 	<?php if ($isAdmin != true && $isAssistant != true && $isColvir != true) { ?>
-		<form action="logout.php" style="position:absolute; margin:1%;">
+		<form action="assets/api/logout.php" style="position:absolute; margin:1%;">
 			<button type="submit" class="btn btn-secondary" class="logout-btn">Выйти</button>
 		</form>
 	<?php }
@@ -119,7 +119,7 @@ require_once "get_bg.php";
 							</div>
 							<div class="card-body">
 								<center>
-									<a href="logout.php"><button type="button"
+									<a href="assets/api/logout.php"><button type="button"
 											class="btn btn-primary btn-sm">Выйти</button></a>
 									<a href="assistant.php"><button type="button" class="btn btn-danger btn-sm">Вводить
 											результаты!</button></a>
@@ -201,7 +201,7 @@ require_once "get_bg.php";
 												<div class="card-body" style="padding: 0 10px 0 10px;">
 													<!-- Список существующих вопросов -->
 													<div id="existingQuestions">
-														<?php include 'get_questions_script.php'; ?>
+														<?php include 'assets/api/get_questions_script.php'; ?>
 													</div>
 												</div>
 											</div>
@@ -241,7 +241,7 @@ require_once "get_bg.php";
 				// Отправляем AJAX запрос
 				$.ajax({
 					type: 'POST',
-					url: 'sendanswer_script.php', // Укажите путь к вашему обработчику на сервере
+					url: 'assets/api/sendanswer_script.php', // Укажите путь к вашему обработчику на сервере
 					data: formData,
 					success: function (response) {
 						// Очищаем поля формы
@@ -276,7 +276,7 @@ require_once "get_bg.php";
 				formData.append('imageFile', file);
 
 				var xhr = new XMLHttpRequest();
-				xhr.open('POST', 'background_img_script.php', true);
+				xhr.open('POST', 'assets/api/background_img_script.php', true);
 				xhr.onload = function () {
 					if (xhr.status === 200) {
 						// Обработка успешного ответа
@@ -294,7 +294,7 @@ require_once "get_bg.php";
                 var quizName = $('#quizName').val();
                 $.ajax({
                     type: 'POST',
-                    url: 'update_quiz_name_script.php',
+                    url: 'assets/api/update_quiz_name_script.php',
                     data: {quizName: quizName},
                     success: function(response){
                         $('#message').html(response);
@@ -307,7 +307,7 @@ require_once "get_bg.php";
                 var quizScore = $('#quizMaxScore').val();
                 $.ajax({
                     type: 'POST',
-                    url: 'update_quiz_score_script.php',
+                    url: 'assets/api/update_quiz_score_script.php',
                     data: {quizScore: quizScore},
                     success: function(response){
                         $('#message').html(response);
@@ -323,7 +323,7 @@ require_once "get_bg.php";
 				var newQuestionAnsw = $('#newQuestionAnsw').val();
                 $.ajax({
                     type: 'POST',
-                    url: 'add_question_script.php',
+                    url: 'assets/api/assets/api/add_question_script.php',
                     data: {
 						newQuestion: newQuestion,
 						newQuestionType: newQuestionType,
@@ -332,7 +332,7 @@ require_once "get_bg.php";
 					},
                     success: function(response){
                         $('#message').html(response);
-                        $('#existingQuestions').load('get_questions_script.php'); // Обновляем список вопросов
+                        $('#existingQuestions').load('assets/api/get_questions_script.php'); // Обновляем список вопросов
                     }
                 });
             });
@@ -342,11 +342,11 @@ require_once "get_bg.php";
                 var questionId = $(this).data('question-id');
                 $.ajax({
                     type: 'POST',
-                    url: 'delete_question_script.php',
+                    url: 'assets/api/delete_question_script.php',
                     data: {questionId: questionId},
                     success: function(response){
                         $('#message').html(response);
-                        $('#existingQuestions').load('get_questions_script.php'); // Обновляем список вопросов
+                        $('#existingQuestions').load('assets/api/get_questions_script.php'); // Обновляем список вопросов
                     }
                 });
             });

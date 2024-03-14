@@ -1,6 +1,6 @@
 <?php
-require_once "score_script.php";
-require_once "get_bg.php";
+require_once "assets/api/score_script.php";
+require_once "assets/api/get_bg.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

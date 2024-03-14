@@ -15,9 +15,9 @@ if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > $
 }
 
 $_SESSION['last_activity'] = time(); // Обновляем время последней активности
-include "inbox_script.php";
-require_once "get_bg.php";
-require_once "quiz_name_script.php";
+include "assets/api/inbox_script.php";
+require_once "assets/api/get_bg.php";
+require_once "assets/api/quiz_name_script.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -242,7 +242,7 @@ require_once "quiz_name_script.php";
 					<div class="row">
 						<div class="col-md-8 ml-auto mr-auto">
 							<h2 class="title">Вы уверены, что авторизовались в системе?</h2>
-							<form action="logout.php">
+							<form action="assets/api/logout.php">
 								<button type="submit" class="btn btn-primary" class="logout-btn">Выйти</button>
 							</form>
 						</div>
@@ -386,7 +386,7 @@ require_once "quiz_name_script.php";
 					statusMessage.innerHTML = 'Отправка данных...';
 
 					// Отправляем данные на сервер с помощью AJAX запроса
-					fetch('update_points_script.php', {
+					fetch('assets/api/update_points_script.php', {
 						method: 'POST',
 						body: formData
 					})
@@ -420,7 +420,7 @@ require_once "quiz_name_script.php";
 				$('#team-filter').change(function () {
 					var teamname = $(this).val();
 					$.ajax({
-						url: 'answers_filter_script.php',
+						url: 'assets/api/answers_filter_script.php',
 						type: 'POST',
 						data: { teamname: teamname },
 						success: function (response) {
@@ -432,7 +432,7 @@ require_once "quiz_name_script.php";
 				$('#sort-selector').change(function() {
 					var value = $(this).val();
 					$.ajax({
-						url: 'sort_teams_script.php',
+						url: 'assets/api/sort_teams_script.php',
 						type: 'GET',
 						data: { sort: value },
 						success: function(response) {
@@ -446,7 +446,7 @@ require_once "quiz_name_script.php";
 				//обновление пользовательской турнирной таблицы
 				$('#updateScoresBtn').click(function() {
 					$.ajax({
-						url: 'update_scores_script.php',
+						url: 'assets/api/update_scores_script.php',
 						type: 'POST',
 						dataType: 'html',
 						success: function(response) {

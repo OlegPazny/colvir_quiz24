@@ -1,8 +1,8 @@
 <?php
-require_once "db_connect.php";
-require_once "assistant_script.php";
-require_once "get_bg.php";
-require_once "quiz_name_script.php";
+require_once "assets/api/db_connect.php";
+require_once "assets/api/assistant_script.php";
+require_once "assets/api/get_bg.php";
+require_once "assets/api/quiz_name_script.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,7 +121,7 @@ require_once "quiz_name_script.php";
 					}
 					$.ajax({
 						type: 'POST',
-						url: 'addscore_script.php',
+						url: 'assets/api/addscore_script.php',
 						data: {
 							team_id: teamId,
 							score: score

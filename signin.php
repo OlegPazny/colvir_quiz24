@@ -15,8 +15,8 @@ if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > $
 } 
 
 $_SESSION['last_activity'] = time(); // Обновляем время последней активности
-  require_once "get_bg.php";
-  require_once "quiz_name_script.php";
+  require_once "assets/api/get_bg.php";
+  require_once "assets/api/quiz_name_script.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +96,7 @@ $_SESSION['last_activity'] = time(); // Обновляем время после
               </div>
               <div class="footer text-center">
                 <input type="submit" class=" login-btn btn btn-info btn-link btn-wd btn-lg" value="Войти" />
-                <script src="js/auth.js"></script>
+                <script src="assets/js/auth.js"></script>
               </div>
             </form>
 

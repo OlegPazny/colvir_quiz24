@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-	require_once "addscore_script.php";	
+	require_once "assets/api/addscore_script.php";	
 ?>
 <html lang="ru">
 	<head>
