@@ -121,15 +121,13 @@ require_once "assets/api/get_bg.php";
 								<center>
 									<a href="assets/api/logout.php"><button type="button"
 											class="btn btn-primary btn-sm">Выйти</button></a>
-									<a href="assistant.php"><button type="button" class="btn btn-danger btn-sm">Вводить
-											результаты!</button></a>
-									<a href="inbox.php"><button type="button" class="btn btn-primary btn-sm">Смотреть
+									<a href="inbox.php"><button type="button" class="btn btn-danger btn-sm">Смотреть
 											ответы!</button></a>
 									<a href="score.php"><button type="button" class="btn btn-success btn-sm">Смотреть
 											турнирную таблицу!</button></a>
 									<div class="input-group" style="justify-content: center">
 										<label class="input-group-btn" >
-											<span class="btn btn-primary btn-sm" style="display: flex; align-items: center; height:95%;">
+											<span class="btn btn-success btn-sm" style="display: flex; align-items: center; height:95%;">
 												<span class="fileinput-new">Выберите изображение</span>
 												<input type="file" id="imageFile" name="file" accept="image/*" style="display: none;">
 											</span>
