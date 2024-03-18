@@ -89,7 +89,7 @@ $(document).ready(function () {
         var newQuestionAnsw = $('#newQuestionAnsw').val();
         $.ajax({
             type: 'POST',
-            url: 'assets/api/assets/api/add_question_script.php',
+            url: 'assets/api/add_question_script.php',
             data: {
                 newQuestion: newQuestion,
                 newQuestionType: newQuestionType,

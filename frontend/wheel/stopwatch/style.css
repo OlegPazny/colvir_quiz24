@@ -1,0 +1,36 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+html body, body body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+html body .div, body body .div {
+  background: #13539D;
+  color: #fff;
+  padding: 30px;
+  border-radius: 50px;
+  font-family: sans-serif;
+}
+html body .div button, body body .div button {
+  height: 35px;
+  width: 100px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  font-size: 23px;
+  color: #666;
+  background: #fff;
+  font-family: "Jura", sans-serif;
+}
+html body .div button:focus, body body .div button:focus {
+  outline: none;
+}
+html body .div button:hover, body body .div button:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 2px black;
+  transition: 0.5s;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ColvirSuperBaraban</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Jura:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <style type="text/css">
+    body {
+      background: url(92961.jpg) no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+
+    }
+  </style>
+</head>
+
+<body onLoad="qsoundStop();">
+  <center>
+
+    <!-- partial:index.partial.html -->
+    <div id="chart"></div>
+    <div id="question">
+      <h1></h1>
+    </div>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- partial -->
+    <audio id="msound" src="../mp3/msoundnew.mp3" volume="0.1" loop></audio>
+    <audio id="qsound" src="../mp3/qsound.mp3" volume="0.3" loop></audio>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </center>
+</body>
+
+</html>
