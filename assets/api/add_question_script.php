@@ -10,7 +10,7 @@
 
 
     // Получение данных из формы
-    $newQuestion = $_POST['newQuestion'];
+    $newQuestion = $_POST['newQuestionTxt'];
     $newQuestionType = $_POST['newQuestionType'];
     $newQuestionScore = $_POST['newQuestionScore'];
     $newQuestionAnsw = $_POST['newQuestionAnsw'];

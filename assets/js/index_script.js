@@ -83,7 +83,7 @@ $(document).ready(function () {
     // Обработка добавления вопроса через AJAX
     $('#addQuestionForm').submit(function (event) {
         event.preventDefault();
-        var newQuestion = $('#newQuestion').val();
+        var newQuestionTxt = $('#newQuestionTxt').val();
         var newQuestionType = $('#newQuestionType').val();
         var newQuestionScore = $('#newQuestionScore').val();
         var newQuestionAnsw = $('#newQuestionAnsw').val();
@@ -91,7 +91,7 @@ $(document).ready(function () {
             type: 'POST',
             url: 'assets/api/add_question_script.php',
             data: {
-                newQuestion: newQuestion,
+                newQuestionTxt: newQuestionTxt,
                 newQuestionType: newQuestionType,
                 newQuestionScore: newQuestionScore,
                 newQuestionAnsw: newQuestionAnsw,
@@ -116,4 +116,18 @@ $(document).ready(function () {
             }
         });
     });
+    //открытие страницы с вопросом
+    $(document).on('click', '.openQuestionBtn', function() {
+        var questionId = $(this).data('question-id');
+        openQuestion(questionId);
+    });
+    
+    function openQuestion(questionId) {
+        // Формируем URL с параметрами
+        var url = 'question.php?id=' + questionId;
+        // Открываем новую страницу
+        window.open(url, '_blank');
+        
+    }
+    
 });

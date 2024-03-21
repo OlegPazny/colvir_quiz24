@@ -10,12 +10,12 @@ ini_set('session.gc_maxlifetime', $session_lifetime);
 session_start();
 
 // Обновляем время жизни сессии
-if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > $session_lifetime) {
-    // Если прошло более $session_lifetime секунд с момента последней активности, уничтожаем сессию
-    session_unset();
-    session_destroy();
-    session_start(); // Начинаем новую сессию
-} 
+if (isset ($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > $session_lifetime) {
+	// Если прошло более $session_lifetime секунд с момента последней активности, уничтожаем сессию
+	session_unset();
+	session_destroy();
+	session_start(); // Начинаем новую сессию
+}
 
 $_SESSION['last_activity'] = time(); // Обновляем время последней активности
 
@@ -42,14 +42,41 @@ require_once "assets/api/get_bg.php";
 	<link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="assets/demo/demo.css" rel="stylesheet" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/summernote.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
 </head>
 <style>
-
-
+#exampleFormControlInput1{
+    width:15%;
+}
+.note-toolbar{
+    background-color: white;
+    border-bottom:1px solid gray;
+    border-radius: 7px 7px 0 0;
+  }
+.note-editing-area{
+    background-color: white;
+    border-radius: 0 0 7px 7px;
+}
+.note-editor{
+    border-radius: 7px;
+}
+.dropdown-toggle, .btn-sm{
+    background-color: transparent;
+}
+.modal-content{
+    align-items: flex-start;
+}
+.modal-title{
+    margin-left: 1rem;
+}
 </style>
 
-<body class="login-page sidebar-collapse" style="background-image: url('data:image/jpeg;base64,<?php echo($bg);?>'); background-size:cover; background-repeat:no repeat;">
+<body class="login-page sidebar-collapse"
+	style="background-image: url('data:image/jpeg;base64,<?php echo ($bg); ?>'); background-size:cover; background-repeat:no repeat;">
 	<?php if ($isAdmin != true && $isAssistant != true && $isColvir != true) { ?>
 		<form action="assets/api/logout.php" style="position:absolute; margin:1%;">
 			<button type="submit" class="btn btn-secondary" class="logout-btn">Выйти</button>
@@ -84,7 +111,7 @@ require_once "assets/api/get_bg.php";
 											<option value="" disabled selected hidden>На какой вопрос отвечаем?</option>
 											<?php
 											foreach ($questions as $question) {
-												echo ("<option value=" . $question[0] . ">Вопрос №". $question[0] . "</option>");
+												echo ("<option value=" . $question[0] . ">Вопрос №" . $question[0] . "</option>");
 											}
 											?>
 										</select>
@@ -125,15 +152,22 @@ require_once "assets/api/get_bg.php";
 											ответы!</button></a>
 									<a href="score.php"><button type="button" class="btn btn-success btn-sm">Смотреть
 											турнирную таблицу!</button></a>
+									<?php if ($isAdmin == true) { ?>
+										<a href="wheel.php"><button type="button"
+												class="btn btn-success btn-sm">Открыть барабан</button></a>
+									<?php } ?>
 									<div class="input-group" style="justify-content: center">
-										<label class="input-group-btn" >
-											<span class="btn btn-success btn-sm" style="display: flex; align-items: center; height:95%;">
+										<label class="input-group-btn">
+											<span class="btn btn-success btn-sm"
+												style="display: flex; align-items: center; height:95%;">
 												<span class="fileinput-new">Выберите изображение</span>
-												<input type="file" id="imageFile" name="file" accept="image/*" style="display: none;">
+												<input type="file" id="imageFile" name="file" accept="image/*"
+													style="display: none;">
 											</span>
 										</label>
 
-										<button id="uploadBtn" class="btn btn-primary btn-sm">Сменить фоновое изображение</button>
+										<button id="uploadBtn" class="btn btn-primary btn-sm">Сменить фоновое
+											изображение</button>
 									</div>
 									<br>
 									<div class="row">
@@ -146,9 +180,12 @@ require_once "assets/api/get_bg.php";
 													<!-- Форма добавления вопроса -->
 													<form id="editForm">
 														<div class="form-group">
-														<input type="text" class="form-control" placeholder="Название Quiz" id="quizName" name="quizName" required>
+															<input type="text" class="form-control"
+																placeholder="Название Quiz" id="quizName" name="quizName"
+																required>
 														</div>
-														<button type="submit" class="btn btn-primary btn-block">Сохранить</button>
+														<button type="submit"
+															class="btn btn-primary btn-block">Сохранить</button>
 													</form>
 													<div id="message"></div>
 												</div>
@@ -166,9 +203,12 @@ require_once "assets/api/get_bg.php";
 													<!-- Форма изменения баллов -->
 													<form id="editScoreForm">
 														<div class="form-group">
-														<input type="text" class="form-control" placeholder="Максимальный балл" id="quizMaxScore" name="quizMaxScore" required>
+															<input type="text" class="form-control"
+																placeholder="Максимальный балл" id="quizMaxScore"
+																name="quizMaxScore" required>
 														</div>
-														<button type="submit" class="btn btn-primary btn-block">Сохранить</button>
+														<button type="submit"
+															class="btn btn-primary btn-block">Сохранить</button>
 													</form>
 													<div id="message"></div>
 												</div>
@@ -186,12 +226,20 @@ require_once "assets/api/get_bg.php";
 													<!-- Форма добавления вопроса -->
 													<form id="addQuestionForm">
 														<div class="form-group">
-															<input type="text" class="form-control" id="newQuestion" name="newQuestion" placeholder="Текст вопроса" required>
-															<input type="text" class="form-control" id="newQuestionType" name="newQuestionType" placeholder="Тип вопроса" required>
-															<input type="text" class="form-control" id="newQuestionScore" name="newQuestionScore" placeholder="Максимальный балл" required>
-															<input type="text" class="form-control" id="newQuestionAnsw" name="newQuestionAnsw" placeholder="Правильный ответ" required>
+															<div id="summernote">
+																<textarea class="form-control" id="newQuestionTxt" name="newQuestionTxt" value="текст"></textarea>
+															</div>
+															<input type="text" class="form-control" id="newQuestionType"
+																name="newQuestionType" placeholder="Тип вопроса" required>
+															<input type="text" class="form-control" id="newQuestionScore"
+																name="newQuestionScore" placeholder="Максимальный балл"
+																required>
+															<input type="text" class="form-control" id="newQuestionAnsw"
+																name="newQuestionAnsw" placeholder="Правильный ответ"
+																required>
 														</div>
-														<button type="submit" class="btn btn-primary btn-block">Добавить вопрос</button>
+														<button type="submit" class="btn btn-primary btn-block">Добавить
+															вопрос</button>
 													</form>
 												</div>
 											</div>
@@ -230,6 +278,17 @@ require_once "assets/api/get_bg.php";
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 	<script src="assets/js/material-kit.js?v=2.0.4" type="text/javascript"></script>
 	<script src="assets/js/index_script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://kit.fontawesome.com/936d86183c.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+	<script src="assets/js/summernote.min.js"></script>
+    <script src="assets/js/lang/summernote-ru-RU.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+	<script src="assets/js/script.js"></script>
 </body>
 
 </html>

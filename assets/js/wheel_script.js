@@ -7,8 +7,6 @@ var padding = { top: 100, right: 500, bottom: 150, left: 0 },
     picked = 100000,
     oldpick = [],
     color = d3.scale.category20();//category20c()
-//randomNumbers = getRandomNumbers();
-//http://osric.com/bingo-card-generator/?title=HTML+and+CSS+BINGO!&words=padding%2Cfont-family%2Ccolor%2Cfont-weight%2Cfont-size%2Cbackground-color%2Cnesting%2Cbottom%2Csans-serif%2Cperiod%2Cpound+sign%2C%EF%B9%A4body%EF%B9%A5%2C%EF%B9%A4ul%EF%B9%A5%2C%EF%B9%A4h1%EF%B9%A5%2Cmargin%2C%3C++%3E%2C{+}%2C%EF%B9%A4p%EF%B9%A5%2C%EF%B9%A4!DOCTYPE+html%EF%B9%A5%2C%EF%B9%A4head%EF%B9%A5%2Ccolon%2C%EF%B9%A4style%EF%B9%A5%2C.html%2CHTML%2CCSS%2CJavaScript%2Cborder&freespace=true&freespaceValue=Web+Design+Master&freespaceRandom=false&width=5&height=5&number=35#results
 var data;
 $(document).ready(function () {
     $.ajax({
@@ -25,7 +23,6 @@ $(document).ready(function () {
                 };
                 data.push(newItem);
             });
-            console.log(data);
             var svg = d3.select('#chart')
                 .append("svg")
                 .data([data])
@@ -119,7 +116,7 @@ $(document).ready(function () {
                             .attr("fill", "#bbb");
                         //populate question
                         d3.select("#question h1")
-                            .text(data[picked].question);
+                            .html('<a href="question.php?id='+data[picked].value+'" target="_blank">'+data[picked].question+'</a>');
                         oldrotation = rotation;
 
                         /* Get the result value from object "data" */
@@ -177,4 +174,18 @@ $(document).ready(function () {
             console.error(xhr.responseText); // Выводим сообщение об ошибке в консоль
         }
     });
+    function updateSvgSize() {
+        var chart = document.getElementById('chart');
+        var svg = chart.querySelector('svg');
+        var chartWidth = chart.clientWidth;
+        var chartHeight = chart.clientHeight;
+    
+        svg.setAttribute('width', chartWidth);
+        svg.setAttribute('height', chartHeight);
+    }
+    
+    // Вызываем функцию при загрузке страницы и изменении размеров окна
+    window.addEventListener('load', updateSvgSize);
+    window.addEventListener('resize', updateSvgSize);
+    
 });
