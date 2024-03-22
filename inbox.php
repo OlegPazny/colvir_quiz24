@@ -46,15 +46,15 @@ require_once "assets/api/quiz_name_script.php";
 		rel="stylesheet">
 
 	<!-- jQuery (необходим для Bootstrap и Bootstrap Select) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<!-- Bootstrap JS (если требуется) -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<!-- Bootstrap Select JS (если требуется) -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
 
 
-	<script src="https://code.jquery.com/jquery-3.7.1.js"
-		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 </head>
 
