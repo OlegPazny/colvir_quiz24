@@ -74,6 +74,9 @@ require_once "assets/api/get_bg.php";
 .modal-title{
     margin-left: 1rem;
 }
+.note-editable {
+    text-align: justify;
+}
 </style>
 
 <body class="login-page sidebar-collapse"

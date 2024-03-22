@@ -54,7 +54,7 @@ $(document).ready(function () {
         };
         xhr.send(formData);
     });
-    // Обработка отправки формы через AJAX
+    // обновление названия квиза
     $('#editForm').submit(function (e) {
         e.preventDefault();
         var quizName = $('#quizName').val();
@@ -67,7 +67,7 @@ $(document).ready(function () {
             }
         });
     });
-    // Обработка отправки формы через AJAX
+    // обновление максимального счета
     $('#editScoreForm').submit(function (e) {
         e.preventDefault();
         var quizScore = $('#quizMaxScore').val();
@@ -80,7 +80,7 @@ $(document).ready(function () {
             }
         });
     });
-    // Обработка добавления вопроса через AJAX
+    // Обработка добавления вопроса через
     $('#addQuestionForm').submit(function (event) {
         event.preventDefault();
         var newQuestionTxt = $('#newQuestionTxt').val();
@@ -99,6 +99,7 @@ $(document).ready(function () {
             success: function (response) {
                 $('#message').html(response);
                 $('#existingQuestions').load('assets/api/get_questions_script.php'); // Обновляем список вопросов
+                $('#addQuestionForm')[0].reset();
             }
         });
     });

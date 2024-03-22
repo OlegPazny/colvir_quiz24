@@ -54,6 +54,10 @@ require_once "assets/api/get_bg.php"
 	.carousel, .carousel-inner, .carousel-control-prev, .carousel-control-next{
 		height:90vh;
 	}
+	.carousel-item {
+		overflow-y: auto; /* Включить вертикальную прокрутку, если содержимое не помещается */
+		max-height: 100vh; /* Максимальная высота равна высоте экрана */
+	}
 	h3{
 		padding-bottom:1%;
 		border-bottom: 2px solid #C8C8C8;
@@ -87,9 +91,9 @@ require_once "assets/api/get_bg.php"
 														</iframe>
 													</div>
 												<?php } else { ?>
-													<h1>
-														<?php echo ($qtext); ?>
-													</h1>
+														<h1>
+															<?php echo ($qtext); ?>
+														</h1>
 												<?php } ?>
 											</center>
 										</div>

@@ -13,7 +13,12 @@ jQuery(function($){
             ['insert', ['link', 'picture', 'video']],
           ],
           fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Jura'],
-          fontNamesIgnoreCheck: ['Jura']
+          fontNamesIgnoreCheck: ['Jura'],
+          callbacks: {
+            onInit: function() {
+                $('.note-editable').css('text-align', 'justify');
+            }
+        }
     });
     $("#content").summernote();
     $('#newQuestionTxt').summernote('fontName', 'Jura');
