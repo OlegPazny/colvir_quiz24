@@ -6,12 +6,16 @@ jQuery(function($){
             ['style', ['style']],
             ['font', ['bold', 'underline', 'clear']],
             ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']],
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['table', ['table']],
-            ['insert', ['link', 'picture']],
+            ['insert', ['link', 'picture', 'video']],
           ],
+          fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Jura'],
+          fontNamesIgnoreCheck: ['Jura']
     });
     $("#content").summernote();
+    $('#newQuestionTxt').summernote('fontName', 'Jura');
     $('.dropdown-toggle').dropdown();
 });

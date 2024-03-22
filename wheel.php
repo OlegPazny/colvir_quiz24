@@ -2,6 +2,7 @@
   session_start();
   //проверка на админа
   require_once "assets/api/isAdmin.php";
+  require_once "assets/api/get_bg.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@
     href="https://fonts.googleapis.com/css?family=Jura:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <style type="text/css">
     body {
-      background: url(assets/img/wheel_bg.jpg) no-repeat;
+      background: url('data:image/jpeg;base64,<?php echo ($bg); ?>') no-repeat;
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;

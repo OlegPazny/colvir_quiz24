@@ -38,6 +38,7 @@ require_once "assets/api/get_bg.php";
 	<!--     Fonts and icons     -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Material+Icons" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&display=swap" rel="stylesheet">
 	<!-- CSS Files -->
 	<link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
 	<!-- CSS Just for demo purpose, don't include it in your project -->
