@@ -107,28 +107,33 @@ $(document).ready(function () {
     // Обработка удаления вопроса через делегирование событий
     $('#existingQuestions').on('click', '.deleteQuestionBtn', function () {
         var questionId = $(this).data('question-id');
-        $.ajax({
-            type: 'POST',
-            url: 'assets/api/delete_question_script.php',
-            data: { questionId: questionId },
-            success: function (response) {
-                $('#message').html(response);
-                $('#existingQuestions').load('assets/api/get_questions_script.php'); // Обновляем список вопросов
-            }
-        });
+
+        // Отображаем confirm
+        var confirmation = confirm('Вы уверены, что хотите удалить этот вопрос?');
+        if (confirmation) {
+            $.ajax({
+                type: 'POST',
+                url: 'assets/api/delete_question_script.php',
+                data: { questionId: questionId },
+                success: function (response) {
+                    $('#message').html(response);
+                    $('#existingQuestions').load('assets/api/get_questions_script.php'); // Обновляем список вопросов
+                }
+            });
+        }
     });
     //открытие страницы с вопросом
-    $(document).on('click', '.openQuestionBtn', function() {
+    $(document).on('click', '.openQuestionBtn', function () {
         var questionId = $(this).data('question-id');
         openQuestion(questionId);
     });
-    
+
     function openQuestion(questionId) {
         // Формируем URL с параметрами
         var url = 'question.php?id=' + questionId;
         // Открываем новую страницу
         window.open(url, '_blank');
-        
+
     }
-    
+
 });
