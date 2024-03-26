@@ -8,6 +8,10 @@ var padding = { top: 100, right: 500, bottom: 150, left: 0 },
     oldpick = [],
     color = d3.scale.category20();//category20c()
 var data;
+function qsoundStop() {
+    qsound.pause();
+    qsound.currentTime = 0;
+}
 $(document).ready(function () {
     $.ajax({
         url: '../../../assets/api/wheel_script.php',
@@ -15,7 +19,7 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (response) {
             data = [];
-            response.forEach(function(item) {
+            response.forEach(function (item) {
                 var newItem = {
                     label: 'Вопрос #' + item.id,
                     value: item.id,
@@ -68,17 +72,6 @@ $(document).ready(function () {
                 qsound.pause();
                 qsound.currentTime = 0;
             }
-            /*function msoundPlay(){
-                var msound = document.getElementById("msound");
-                msound.volume = 0.07;
-                msound.play();
-            }  
-            	
-            function msoundStop(){
-                msound.pause();
-                msound.currentTime = 0;
-            	
-            }*/
             function spin(d) {
                 //msoundStop();
                 qsoundPlay();
@@ -116,7 +109,7 @@ $(document).ready(function () {
                             .attr("fill", "#bbb");
                         //populate question
                         d3.select("#question h1")
-                            .html('<a href="question.php?id='+data[picked].value+'" target="_blank">'+data[picked].question+'</a>');
+                            .html('<a href="question.php?id=' + data[picked].value + '" target="_blank">' + data[picked].question + '</a>');
                         oldrotation = rotation;
 
                         /* Get the result value from object "data" */
@@ -179,13 +172,13 @@ $(document).ready(function () {
         var svg = chart.querySelector('svg');
         var chartWidth = chart.clientWidth;
         var chartHeight = chart.clientHeight;
-    
+
         svg.setAttribute('width', chartWidth);
         svg.setAttribute('height', chartHeight);
     }
-    
+
     // Вызываем функцию при загрузке страницы и изменении размеров окна
     window.addEventListener('load', updateSvgSize);
     window.addEventListener('resize', updateSvgSize);
-    
+
 });
