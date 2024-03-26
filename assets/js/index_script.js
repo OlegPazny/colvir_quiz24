@@ -1,23 +1,21 @@
 $(document).ready(function () {
-    // Обработчик события отправки формы
     $('.form').submit(function (e) {
-        e.preventDefault(); // Предотвращаем стандартное поведение формы
+        e.preventDefault();
         // Получаем данные формы
         var formData = $(this).serialize();
-        // Отправляем AJAX запрос
         $.ajax({
             type: 'POST',
-            url: 'assets/api/sendanswer_script.php', // Укажите путь к вашему обработчику на сервере
+            url: 'assets/api/sendanswer_script.php',
             data: formData,
             success: function (response) {
                 // Очищаем поля формы
                 $('.form')[0].reset();
 
-                // Выводим асинхронное сообщение в форме (зеленый цвет)
+                // Выводим сообщение в форме (зеленый цвет)
                 $('.status-message').html('<span style="color: green; margin-left: 5%;">Данные успешно отправлены!</span>');
             },
             error: function (xhr, status, error) {
-                // Выводим сообщение об ошибке, если что-то пошло не так (красный цвет)
+                // Выводим сообщение об ошибке(красный цвет)
                 $('.status-message').html('<span style="color: red; margin-left: 5%;">Произошла ошибка: ' + error + '</span>');
             }
         });
@@ -45,10 +43,8 @@ $(document).ready(function () {
         xhr.open('POST', 'assets/api/background_img_script.php', true);
         xhr.onload = function () {
             if (xhr.status === 200) {
-                // Обработка успешного ответа
                 alert('Изображение загружено успешно! Перезагрузите страницу, чтобы увидеть результат!');
             } else {
-                // Обработка ошибок
                 alert('Произошла ошибка при загрузке изображения!');
             }
         };
@@ -80,7 +76,7 @@ $(document).ready(function () {
             }
         });
     });
-    // Обработка добавления вопроса через
+    // Обработка добавления вопроса
     $('#addQuestionForm').submit(function (event) {
         event.preventDefault();
         var newQuestionTxt = $('#newQuestionTxt').val();
@@ -104,7 +100,7 @@ $(document).ready(function () {
         });
     });
 
-    // Обработка удаления вопроса через делегирование событий
+    // Обработка удаления вопроса
     $('#existingQuestions').on('click', '.deleteQuestionBtn', function () {
         var questionId = $(this).data('question-id');
 
