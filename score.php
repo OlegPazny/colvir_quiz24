@@ -51,7 +51,7 @@ require_once "assets/api/get_bg.php";
 										<div class='col-lg-4 col-md-6 mb-4'>
 											<div class='card' style='height:75%'>
 												<div class='card-body d-flex flex-column'>
-													<h4 class='text-left'>" . $i . ". <img src='avatar/" . $team[3] . ".svg'
+													<h4 class='text-left'>" . $i . ". <img src='assets/img/avatar/" . $team[3] . ".svg'
 															height='45px' />&nbsp;&nbsp;
 														<strong>" . $team[1] . "</strong>
 													</h4>

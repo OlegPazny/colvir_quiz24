@@ -97,7 +97,7 @@ require_once "assets/api/get_bg.php";
 						<div class="card card-login">
 							<form class="form" method="POST">
 								<div class="card-header card-header-info text-center">
-									<h4 class="card-title"><img src="avatar/<?php echo $teampic; ?>.svg"
+									<h4 class="card-title"><img src="assets/img/avatar/<?php echo $teampic; ?>.svg"
 											height="50px" />&nbsp;&nbsp;
 										<?php echo "Команда '" . $teamname . "'"; ?>&nbsp;&nbsp;<a target="_blank"
 											href="score.php?game=1"><button type="button"
@@ -143,7 +143,7 @@ require_once "assets/api/get_bg.php";
 
 						<div class="card card-login">
 							<div class="card-header card-header-info text-center">
-								<h4 class="card-title"><img src="avatar/<?php echo $teampic; ?>.svg"
+								<h4 class="card-title"><img src="assets/img/avatar/<?php echo $teampic; ?>.svg"
 										height="50px" />&nbsp;&nbsp;
 									<?php echo "Добро пожаловать, уважаемый " . $teamname . ". Что желаете?"; ?>
 								</h4>
