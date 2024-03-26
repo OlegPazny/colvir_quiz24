@@ -38,7 +38,9 @@ require_once "assets/api/get_bg.php";
 	<!--     Fonts and icons     -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Material+Icons" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&display=swap" rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&display=swap"
+		rel="stylesheet">
 	<!-- CSS Files -->
 	<link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
 	<!-- CSS Just for demo purpose, don't include it in your project -->
@@ -46,37 +48,48 @@ require_once "assets/api/get_bg.php";
 	<link rel="stylesheet" type="text/css" href="assets/css/summernote.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 </head>
 <style>
-#exampleFormControlInput1{
-    width:15%;
-}
-.note-toolbar{
-    background-color: white;
-    border-bottom:1px solid gray;
-    border-radius: 7px 7px 0 0;
-  }
-.note-editing-area{
-    background-color: white;
-    border-radius: 0 0 7px 7px;
-}
-.note-editor{
-    border-radius: 7px;
-}
-.dropdown-toggle, .btn-sm{
-    background-color: transparent;
-}
-.modal-content{
-    align-items: flex-start;
-}
-.modal-title{
-    margin-left: 1rem;
-}
-.note-editable {
-    text-align: justify;
-}
+	#exampleFormControlInput1 {
+		width: 15%;
+	}
+
+	.note-toolbar {
+		background-color: white;
+		border-bottom: 1px solid gray;
+		border-radius: 7px 7px 0 0;
+	}
+
+	.note-editing-area {
+		background-color: white;
+		border-radius: 0 0 7px 7px;
+	}
+
+	.note-editor {
+		border-radius: 7px;
+	}
+
+	.dropdown-toggle,
+	.btn-sm {
+		background-color: transparent;
+	}
+
+	.modal-content {
+		align-items: flex-start;
+	}
+
+	.modal-title {
+		margin-left: 1rem;
+	}
+
+	.note-editable {
+		text-align: justify;
+	}
+	.card-body, .card-login{
+		padding: 0 10px 0 10px !important;
+	}
 </style>
 
 <body class="login-page sidebar-collapse"
@@ -90,7 +103,7 @@ require_once "assets/api/get_bg.php";
 	<div>
 		<div class="container" style="padding-top:2%">
 			<div class="row">
-				<div class="col-lg-10 ml-auto mr-auto">
+				<div class="col-lg-12 ml-auto mr-auto">
 					<!-- проверка на админа -->
 					<?php if ($isAdmin != true && $isAssistant != true && $isColvir != true) { ?>
 
@@ -157,8 +170,8 @@ require_once "assets/api/get_bg.php";
 									<a href="score.php"><button type="button" class="btn btn-success btn-sm">Смотреть
 											турнирную таблицу!</button></a>
 									<?php if ($isAdmin == true) { ?>
-										<a href="wheel.php"><button type="button"
-												class="btn btn-success btn-sm">Открыть барабан</button></a>
+										<a href="wheel.php"><button type="button" class="btn btn-success btn-sm">Открыть
+												барабан</button></a>
 									<?php } ?>
 									<div class="input-group" style="justify-content: center">
 										<label class="input-group-btn">
@@ -174,8 +187,9 @@ require_once "assets/api/get_bg.php";
 											изображение</button>
 									</div>
 									<br>
+
 									<div class="row">
-										<div class="col-lg-6 col-md-8 ml-auto mr-auto">
+										<div class="col-lg-6 col-md-6">
 											<div class="card">
 												<div class="card-header card-header-primary text-center">
 													<h4 class="card-title">Изменить название</h4>
@@ -195,10 +209,7 @@ require_once "assets/api/get_bg.php";
 												</div>
 											</div>
 										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-6 col-md-8 ml-auto mr-auto">
+										<div class="col-lg-6 col-md-6">
 											<div class="card">
 												<div class="card-header card-header-primary text-center">
 													<h4 class="card-title">Изменить максимальный балл</h4>
@@ -214,14 +225,15 @@ require_once "assets/api/get_bg.php";
 														<button type="submit"
 															class="btn btn-primary btn-block">Сохранить</button>
 													</form>
-													<div id="message"></div>
+													<div id="scoreMessage"></div>
 												</div>
 											</div>
 										</div>
 									</div>
+
 									<br>
 									<div class="row">
-										<div class="col-lg-6 col-md-8 ml-auto mr-auto">
+										<div class="col-lg-10 col-md-8 ml-auto mr-auto">
 											<div class="card">
 												<div class="card-header card-header-primary text-center">
 													<h4 class="card-title">Вопросы</h4>
@@ -231,7 +243,8 @@ require_once "assets/api/get_bg.php";
 													<form id="addQuestionForm">
 														<div class="form-group">
 															<div id="summernote">
-																<textarea class="form-control" id="newQuestionTxt" name="newQuestionTxt" value="текст"></textarea>
+																<textarea class="form-control" id="newQuestionTxt"
+																	name="newQuestionTxt" value="текст"></textarea>
 															</div>
 															<input type="text" class="form-control" id="newQuestionType"
 																name="newQuestionType" placeholder="Тип вопроса" required>
@@ -285,10 +298,10 @@ require_once "assets/api/get_bg.php";
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://kit.fontawesome.com/936d86183c.js" crossorigin="anonymous"></script>
 	<script src="assets/js/summernote.min.js"></script>
-    <script src="assets/js/lang/summernote-ru-RU.js"></script>
+	<script src="assets/js/lang/summernote-ru-RU.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 	<script src="assets/js/script.js"></script>
 </body>
 

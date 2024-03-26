@@ -7,7 +7,7 @@ $questions = mysqli_fetch_all($questions);
 foreach ($questions as $question) {
     echo "<div class='card'>
                 <div class='card-body'>
-                    <div class='row'>
+                    <div class='row' style='justify-content:space-between'>
                         <div class='col-md-9' style='display:flex; align-items: center;'>
                             <p class='card-text'>Вопрос №" . $question[0] . "</p>
                         </div>
