@@ -4,6 +4,12 @@
   require_once "assets/api/isAdmin.php";
   require_once "assets/api/get_bg.php"
 ?>
+<?php
+  if ($isAdmin == false && $isAssistant == false && $isColvir == false){
+    header('Location: index.php');
+    exit();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +42,7 @@
 }
   </style>
 </head>
-<?php if ($isAdmin == true || $isAssistant == true || $isColvir == true){?>
+
 <body onLoad="qsoundStop();">
   <center>
     <!-- partial:index.partial.html -->
@@ -52,9 +58,4 @@
     <script src="assets/js/wheel_script.js"></script>
   </center>
 </body>
-<?php 
-}else{
-  header('Location: index.php');
-}
-?>
 </html>

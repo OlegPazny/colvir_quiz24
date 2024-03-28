@@ -116,7 +116,7 @@ require_once "assets/api/quiz_name_script.php";
 													continue;
 												}
 												if ($display_question_value === false) {
-													$html .= '<p>Вопрос ' . $question[2] . ': ' . $answer[2] . ' ('.$answer[5].')</p><p>Правильный ответ: ' . $answer[7] . '</p>';
+													$html .= '<p>Вопрос ' . $question[2] . ' ('.$answer[5].')</p><p>Правильный ответ: ' . $answer[7] . '</p>';
 													$display_question_value = true;
 												}
 												$html .= '<tr>';
