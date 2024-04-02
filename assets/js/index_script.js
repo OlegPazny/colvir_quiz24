@@ -131,5 +131,70 @@ $(document).ready(function () {
         window.open(url, '_blank');
 
     }
+    // Обработчик событий для каждой карточки вопроса
+    document.querySelectorAll('.question-card').forEach(card => {
+        card.addEventListener('click', function () {
+            // Получаем ID вопроса
+            const questionId = this.id.replace('questionCard', '');
+            // Вставляем ваш код для открытия аккордеона и инициализации редактора Summernote здесь
+            console.log('Кликнута карточка с вопросом №' + questionId);
+
+            // Находим элемент аккордеона внутри карточки
+            const accordionElement = this.querySelector('.accordion');
+            // Получаем текст вопроса из скрытого элемента внутри карточки с сохранением тегов и стилей
+            const questionText = this.querySelector('.question-text').innerHTML;
+            // Инициализируем редактор Summernote с текстом вопроса
+            const editorId = 'summernoteEditor' + questionId;
+            const $editor = $('#' + editorId);
+            $editor.summernote({
+                placeholder: 'Введите текст вопроса',
+                tabsize: 2,
+                height: 400
+            });
+            // Вставляем текст вопроса в редактор Summernote
+            $editor.summernote('code', questionText);
+
+            // Добавляем обработчик событий клика к элементу аккордеона
+            accordionElement.addEventListener('click', function (event) {
+                // Предотвращаем стандартное поведение аккордеона (например, открытие/закрытие по клику)
+                event.stopPropagation();
+            });
+
+            // Переключаем состояние аккордеона
+            if (accordionElement.style.display === 'block') {
+                accordionElement.style.display = 'none';
+            } else {
+                accordionElement.style.display = 'block';
+            }
+        });
+    });
+
+    // Обработчик событий для кнопки "Обновить"
+    $('.updateQuestionBtn').on('click', function () {
+        // Получаем ID вопроса
+        const questionId = $(this).data('question-id');
+        // Получаем текст вопроса из редактора Summernote
+        const editorId = 'summernoteEditor' + questionId;
+        const questionText = $('#' + editorId).summernote('code');
+
+        // Отправляем асинхронный запрос на сервер для обновления данных вопроса в БД
+        $.ajax({
+            url: 'assets/api/update_question_script.php',
+            method: 'POST',
+            data: {
+                questionId: questionId,
+                questionText: questionText
+            },
+            success: function (response) {
+                // В случае успеха выводим сообщение пользователю или выполняем другие действия
+                console.log('Данные вопроса успешно обновлены в БД');
+            },
+            error: function (xhr, status, error) {
+                // В случае ошибки выводим сообщение об ошибке или выполняем другие действия
+                console.error('Произошла ошибка при обновлении данных вопроса: ' + error);
+            }
+        });
+    });
+
 
 });
