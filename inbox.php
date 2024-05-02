@@ -34,11 +34,12 @@ require_once "assets/api/quiz_name_script.php";
 		name='viewport' />
 	<!--     Fonts and icons     -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Material+Icons" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 	<!-- CSS Files -->
 	<link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
-	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link href="assets/demo/demo.css" rel="stylesheet" />
 	<!-- Bootstrap CSS (если требуется) -->
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Bootstrap Select CSS (если требуется) -->
@@ -57,48 +58,150 @@ require_once "assets/api/quiz_name_script.php";
 
 
 </head>
+<style>
+	@font-face {
+    font-family: 'Dezen Pro';
+    src: url('DezenProBold.eot');
+    src: local('Dezen Pro Bold'), local('DezenProBold'),
+        url('assets/fonts/Dezen\ Pro/DezenProBold.eot') format('embedded-opentype'),
+        url('assets/fonts/Dezen\ Pro/DezenProBold.woff2') format('woff2'),
+        url('assets/fonts/Dezen\ Pro/DezenProBold.woff') format('woff'),
+        url('assets/fonts/Dezen\ Pro/DezenProBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+	body{
+		background-image: url("assets/img/bg_2.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		font-family: "Oswald";
+	}
+	.container{
+		margin-top:10vh;
+	}
+	button, input[type="button"]{
+		background-color: #1163ae;
+		border: 1px solid #1163ae;
+		color:white;
+		border-radius: 5px;
+		padding:5px 10px;
+		font-size: 22px;
+		width: max-content;
+		margin-bottom: 10px; /* Отступ между кнопками */
+		transition: 0.5s ease-in-out;
+	}
+	button:hover, input[type="button"]:hover{
+		color:#1163ae;
+		background-color: white;
+		border:1px solid #1163ae;
+		transition: 0.5s ease-in-out;
+	}
+	.show-all-answers, .tournament{
+		color:#1163ae;
+		background-color: white;
+		border:1px solid #1163ae;
+		transition: 0.5s ease-in-out;
+	}
+	.show-all-answers:hover,.tournament:hover{
+		color:white;
+		background-color: #1163ae;
+		transition: 0.5s ease-in-out;
+	}
+	.btn-container{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.dropdown-menu a:hover{
+		box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(39 132 176 / 40%) !important;
+		background-color:#b0d6ff !important;
+	}
+	.table-section{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.head{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.head a h2{
+		font-family: "Dezen Pro";
+		color:black;
+		font-weight: bold;
+		font-size:64px;
+		letter-spacing: 2px;
+	}
+	.head h4{
+		font-family: "Oswald";
+		color:black;
+		font-size:18px;
+		font-weight: bold;
+		text-transform: lowercase;
+		
+	}
 
-<body class="profile-page sidebar-collapse"
-	style="background-image: url('data:image/jpeg;base64,<?php echo ($bg); ?>'); background-size:cover; background-repeat:no repeat;">
-	<div class="page-header" data-parallax="true"></div>
-	<div class="main main-raised">
+	#answers-table{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	p{
+		font-weight: bold;
+	}
+	tr th{
+		border:none !important;
+		color: #1163ae;
+	}
+	tr td{
+		font-weight: bold;
+	}
+	thead{
+		border:none;
+		border-bottom:1px solid #dadada;
+	}
+	.table{
+		background-color:#ffffffba;
+		border-radius:5px;
+	}
+</style>
+<body>
 		<div class="container">
 			<!-- проверка на админку -->
 			<?php if ($isAdmin == true || $isAssistant == true || $isColvir == true) { ?>
-				<div class="section text-center">
-					<div class="row">
-						<div class="col-md-8 ml-auto mr-auto">
+				<div class="table-section">
+					<div class="head">
 							<a href="index.php">
-								<h2 class="title">
+								<h2>
 									<?php echo ($quiz_name); ?>
 								</h2>
 							</a>
-							<h4><strong>Ответы команд</h4>
-						</div>
+							<h4>Ответы команд</h4>
 					</div>
 					<div class="container">
-						<div class="row">
+						<div class="btn-container">
 							<?php foreach ($questions as $question): ?>
 								<div class="col">
-									<button type="button" class="btn btn-primary btn-block show-answers"
+									<button type="button" class="show-answers"
 										data-question-id="<?php echo $question[0]; ?>">
-										Вопрос №
+										Вопрос 
 										<?php echo $question[0]; ?>
 									</button>
 								</div>
 							<?php endforeach; ?>
 							<div class="col">
-								<button type="button" class="btn btn-primary btn-block show-all-answers">
+								<button type="button" class="show-all-answers">
 									Результаты
 								</button>
 							</div>
 							<div class="col">
-								<button type="button" class="btn btn-primary btn-block tournament">
+								<button type="button" class="tournament">
 									Турнирная таблица
 								</button>
 							</div>
 						</div>
-						<div class="row">
+						<div class="tables">
 							<?php foreach ($questions as $question): ?>
 								<div class="row mt-4" id="answers-container" style="display: none; width: 100%"
 									data-question-id="<?php echo $question[0]; ?>">
@@ -116,7 +219,7 @@ require_once "assets/api/quiz_name_script.php";
 													continue;
 												}
 												if ($display_question_value === false) {
-													$html .= '<p>Вопрос ' . $question[2] . ' ('.$answer[5].')</p><p>Правильный ответ: ' . $answer[7] . '</p>';
+													$html .= '<p>Вопрос: ' . $question[2] . ' ('.$answer[5].')</p><p>Правильный ответ: ' . $answer[7] . '</p>';
 													$display_question_value = true;
 												}
 												$html .= '<tr>';
@@ -142,7 +245,7 @@ require_once "assets/api/quiz_name_script.php";
 							<div class="row mt-4" id="all-answers-container" style="display: none; width: 100%">
 								<div class="col">
 									<div class="col-md-2">
-										<select class="selectpicker" data-style="btn btn-primary"
+										<select class="selectpicker" data-style="btn"
 											title="Выберите команду" id="team-filter">
 											<option value="">Все команды</option>
 											<?php foreach ($teams as $team): ?>
@@ -190,7 +293,7 @@ require_once "assets/api/quiz_name_script.php";
 							<div class="row mt-4" id="tournament-container" style="display: none; width: 100%">
 								<div class="col">
 									<div class="col-md-2">
-										<select class="selectpicker" data-style="btn btn-primary" id="sort-selector" style="align-self: flex-end">
+										<select class="selectpicker" data-style="btn" id="sort-selector" style="align-self: flex-end">
 											<option value="alphabetical">По алфавиту</option>
 											<option value="points">По баллам</option>
 										</select>
@@ -230,10 +333,10 @@ require_once "assets/api/quiz_name_script.php";
 						</div>
 					</div>
 					<div id="statusMessage"></div>
-					<form action="index.php">
-						<input type="submit" class="btn btn-primary" value="На главную">
-						<input type="button" id="updateBtn" class="btn btn-primary" value="Сохранить">
-						<input type="button" id="updateScoresBtn" class="btn btn-primary" value="Обновить турнирную таблицу">
+					<div class="bottom-nav">
+						<a href="index.php"><input type="button" value="На главную"></a>
+						<input type="button" id="updateBtn" value="Сохранить">
+						<input type="button" id="updateScoresBtn" value="Обновить турнирную таблицу">
 					</form>
 
 				</div>
