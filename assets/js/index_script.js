@@ -51,7 +51,7 @@ $(document).ready(function () {
         xhr.send(formData);
     });
     // обновление названия квиза
-    $('#editForm').submit(function (e) {
+    $('.quiz_name_save').click(function (e) {
         e.preventDefault();
         var quizName = $('#quizName').val();
         $.ajax({
@@ -64,7 +64,7 @@ $(document).ready(function () {
         });
     });
     // обновление максимального счета
-    $('#editScoreForm').submit(function (e) {
+    $('.quiz_score_save').click(function (e) {
         e.preventDefault();
         var quizScore = $('#quizMaxScore').val();
         $.ajax({
@@ -77,7 +77,7 @@ $(document).ready(function () {
         });
     });
     // Обработка добавления вопроса
-    $('#addQuestionForm').submit(function (event) {
+    $('.question_insert').click(function (event) {
         event.preventDefault();
         var newQuestionTxt = $('#newQuestionTxt').val();
         var newQuestionType = $('#newQuestionType').val();

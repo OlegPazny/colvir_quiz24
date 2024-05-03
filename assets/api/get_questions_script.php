@@ -5,18 +5,14 @@ $questions = mysqli_query($db, "SELECT * FROM `questions`");
 $questions = mysqli_fetch_all($questions);
 
 foreach ($questions as $question) {
-    echo "<div class='card question-card' id='questionCard" . $question[0] . "'>
-            <div class='card-body'>
-                <div class='row' style='justify-content:space-between'>
-                    <div class='col-md-9' style='display:flex; align-items: center;'>
-                        <p class='card-text'><b>Вопрос №" . $question[0] . "</b></p>
+    echo "<div class='question-card' id='questionCard" . $question[0] . "'>
+            <div class='card-block'>
+                    <p class='card-text'>Вопрос №" . $question[0] . "</p>
+                    <div class='questions-control-block'>
+                        <input type='button' class='openQuestionBtn control-btn' data-question-id='" . $question[0] . "' value='Открыть'></input>
+                        <input type='button' class='updateQuestionBtn control-btn' data-question-id='" . $question[0] . "' value='Изменить'></input>
+                        <input type='button' class='deleteQuestionBtn control-btn' data-question-id='" . $question[0] . "' value='Удалить'></input>
                     </div>
-                    <div class='col-md-2 text-right'>
-                        <button class='btn btn-primary btn-sm openQuestionBtn' data-question-id='" . $question[0] . "'>Открыть</button>
-                        <button class='btn btn-danger btn-sm deleteQuestionBtn' data-question-id='" . $question[0] . "'>Удалить</button>
-                        <button class='btn btn-info btn-sm updateQuestionBtn' data-question-id='" . $question[0] . "'>Обновить</button>
-                    </div>
-                </div>
             </div>
             <!-- Аккордеон для редактора Summernote -->
             <div class='accordion' id='accordionQuestion" . $question[0] . "' style='display:none;'>

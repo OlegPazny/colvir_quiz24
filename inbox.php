@@ -182,7 +182,7 @@ require_once "assets/api/quiz_name_script.php";
 					<div class="container">
 						<div class="btn-container">
 							<?php foreach ($questions as $question): ?>
-								<div class="col">
+								<div style="margin-right:2%">
 									<button type="button" class="show-answers"
 										data-question-id="<?php echo $question[0]; ?>">
 										Вопрос 
@@ -190,12 +190,12 @@ require_once "assets/api/quiz_name_script.php";
 									</button>
 								</div>
 							<?php endforeach; ?>
-							<div class="col">
+							<div style="margin-right:2%">
 								<button type="button" class="show-all-answers">
 									Результаты
 								</button>
 							</div>
-							<div class="col">
+							<div>
 								<button type="button" class="tournament">
 									Турнирная таблица
 								</button>

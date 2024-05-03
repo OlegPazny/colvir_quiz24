@@ -41,6 +41,8 @@ require_once "assets/api/get_bg.php";
 	<link
 		href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&display=swap"
 		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 	<!-- CSS Files -->
 	<link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
 	<!-- CSS Just for demo purpose, don't include it in your project -->
@@ -52,108 +54,129 @@ require_once "assets/api/get_bg.php";
 
 </head>
 <style>
-	body{
+	body {
 		background-image: url("assets/img/Картинки/bg_1.svg");
 		background-size: cover;
 	}
-	.logout-btn{
-		position: absolute;
-	}
-	.user-container{
-		height:100vh;
-		width:95vw;
+
+	.user-container {
+		height: 100vh;
+		width: 95vw;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	}
-	.user-form{
+	.admin-container{
+		margin:5% 12%;
+		background-color: white;
+		padding:2%;
+		border-radius: 10px;
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.user-form {
 		display: flex;
-		width:60%;
+		width: 60%;
 		justify-content: center;
 		align-self: center;
 		flex-direction: column;
 		align-items: center;
 	}
-	.head{
-		width:100%;
+
+	.head {
+		width: 100%;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
 		background-color: #1163ae;
 		align-items: center;
-		padding:15px 20px;
+		padding: 15px 20px;
 		border-radius: 25px;
-		border:1px solid #4082be;
-		color:white;
-		margin-bottom:25px;
+		border: 1px solid #4082be;
+		color: white;
+		margin-bottom: 25px;
 	}
-	.head p{
+
+	.head p {
 		font-size: 24px;
 		font-weight: 400;
-		margin:0;
-		margin-right:10px;
+		margin: 0;
+		margin-right: 10px;
 	}
-	.head img{
-		margin-right:10px;
+
+	.head img {
+		margin-right: 10px;
 	}
-	.head h3{
-		font-size:48px;
+
+	.head h3 {
+		font-size: 48px;
 		font-weight: bolder;
 		margin-right: 10px;
 	}
-	.head a button, input[type="submit"]{
-		border:none;
+
+	.head a button,
+	input[type="submit"] {
+		border: none;
 		font-weight: bold;
 		background-color: #78b64e;
-		color:white;
+		color: white;
 		border-radius: 5px;
 		font-size: 24px;
-		padding:5px 15px;
-		margin-top:10px;
+		padding: 5px 15px;
+		margin-top: 10px;
 		cursor: pointer;
 		transition: 0.5s ease-in-out;
 	}
-	.head a button:hover, input[type="submit"]:hover{
+
+	.head a button:hover,
+	input[type="submit"]:hover {
 		transition: 0.5s ease-in-out;
 		background-color: #89d555;
 	}
 
-	.input-container{
+	.input-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		background-color:white;
+		background-color: white;
 		border-radius: 25px;
-		padding:30px 25px;
-		width:100%;
-	}
-	.input-container select, input[type="text"], input[type="text"]::placeholder{
+		padding: 30px 25px;
 		width: 100%;
-		background-color:#1163ae;
-		color:white;
-		font-size:24px;
-		border:none;
-		border-radius: 10px;
-		padding:15px 10px;
-		margin-bottom:15px;
 	}
 
-	.logout-btn{
+	.input-container select,
+	input[type="text"],
+	input[type="text"]::placeholder {
+		width: 100%;
+		background-color: #1163ae;
+		color: white;
+		font-size: 24px;
 		border: none;
-		color:#1163ae;
+		border-radius: 10px;
+		padding: 15px 10px;
+		margin-bottom: 15px;
+	}
+
+	.logout-btn {
+		position: absolute;
+		border: none;
+		color: #1163ae;
 		background-color: white;
 		font-weight: bold;
-		font-size:24px;
-		padding:10px 15px;
+		font-size: 24px;
+		padding: 10px 15px;
 		border-radius: 10px;
 		cursor: pointer;
 		transition: 0.5s ease-in-out;
 	}
-	.logout-btn:hover{
+
+	.logout-btn:hover {
 		transition: 0.5s ease-in-out;
 		background-color: #f1f1f1;
 	}
+
 	#exampleFormControlInput1 {
 		width: 15%;
 	}
@@ -194,6 +217,191 @@ require_once "assets/api/get_bg.php";
 	.card-login {
 		padding: 0 10px 0 10px !important;
 	}
+
+
+	.admin-head{
+		background-color: #1163ae;
+		border-radius:5px;
+		color:white;
+		font-family:"Oswald";
+		padding:1%
+	}
+	.admin-head p{
+		font-size: 24px;
+		letter-spacing: 0.5px;
+		margin:0;
+	}
+	.admin-logout-btn{
+		border: 1px solid #1163ae;
+		color: #1163ae;
+		background-color: white;
+		font-weight: bold;
+		font-size: 24px;
+		padding: 10px 15px;
+		border-radius: 10px;
+		cursor: pointer;
+		transition: 0.5s ease-in-out;
+	}
+
+	.admin-logout-btn:hover {
+		transition: 0.5s ease-in-out;
+		background-color: #1163ae;
+		color:white;
+	}
+	.logout-form{
+		position:absolute;
+		left:13%;
+	}
+	.admin-nav{
+		display:flex;
+		flex-direction:row;
+		justify-content: space-around;
+		margin-top:1%;
+	}
+	button, input[type="button"]{
+		background-color: white;
+		border: 1px solid #1163ae;
+		color:#1163ae;
+		border-radius: 5px;
+		padding:5px 10px;
+		font-size: 22px;
+		width: max-content;
+		margin-bottom: 10px; /* Отступ между кнопками */
+		transition: 0.5s ease-in-out;
+		cursor:pointer;
+	}
+	button:hover, input[type="button"]:hover{
+		color:white;
+		background-color: #1163ae;
+		border:1px solid white;
+		transition: 0.5s ease-in-out;
+	}
+
+	.update-blocks-container{
+		display:flex;
+		flex-direction:row;
+		margin-top:5%;
+		margin-bottom:5%;
+		width:70%;
+		justify-content: space-between;
+	}
+	.add-question-container{
+		margin-top:5%;
+	}
+	.questions-container{
+		width:100%;
+		margin-top:10%;
+	}
+	.update-block{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		background-color: #f9f9f9;
+		padding:1%;
+		width:30%;
+		height: auto;
+		border-radius: 5px;
+	}
+	.insert-question{
+		width:100%;
+	}
+	.update-head{
+		background-color:#1163ae;
+		text-align: center;
+		border-radius: 5px;
+		padding:2%;
+		margin-top:-10%;
+		width:100%;
+		margin-bottom:5%;
+	}
+	.insert-question-head{
+		margin-top:-5%;
+		margin-bottom:2%;
+	}
+	.update-head p{
+		color:white;
+		font-family: "Oswald";
+		font-size:24px;
+		margin:0;
+	}
+	.save-btn{
+		margin-bottom:-10% !important;
+	}
+	.save-btn, .question_insert, .control-btn{
+		background-color: #1163ae !important;
+		border: 1px solid white !important;
+		color:white !important;
+	}
+	.save-btn:hover, .question_insert:hover, .control-btn:hover{
+		background-color: white !important;
+		border: 1px solid #1163ae !important;
+		color:#1163ae !important;
+	}
+	.question_insert{
+		margin-bottom:-3% !important;
+	}
+	input[type="file"] {
+		display: none;
+	}
+
+	.custom-file-upload {
+		background-color: white;
+		border: 1px solid #1163ae;
+		color:#1163ae;
+		border-radius: 5px;
+		padding:5px 10px;
+		font-size: 18px;
+		width: 100%;
+		transition: 0.5s ease-in-out;
+		cursor:pointer;
+		margin-bottom: 15px;
+	}
+	.custom-file-upload:hover{
+		color:white;
+		background-color: #1163ae;
+		border:1px solid white;
+		transition: 0.5s ease-in-out;
+	}
+
+	.change-input{
+		background-color: white !important;
+		border:1px solid #1163ae !important;
+		color:#1163ae !important;
+		font-size:20px !important;
+		border-radius: 5px !important;
+	}
+	.change-input::placeholder{
+		background-color: white !important;
+		color:#1163ae !important;
+		font-size:20px !important;
+	}
+	#summernote{
+		margin-bottom: 2%;
+	}
+	.question-card{
+		background-color: #f9f9f9;
+		border-radius: 5px;
+		padding:2%;
+		margin-bottom:1%;
+	}
+	.card-block{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.questions-control-block{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width:30%;
+	}
+	.card-text{
+		margin:0 !important;
+		font-family: "Oswald";
+		font-size:18px;
+		font-weight: bold;
+	}
 </style>
 
 <body>
@@ -210,19 +418,19 @@ require_once "assets/api/get_bg.php";
 				<div class="head">
 					<p>Команда </p>
 					<img src="assets/img/avatar/<?php echo $teampic; ?>.svg" height="50px" />
-					<?php echo "<h3>".$teamname."</h3>"; ?>
+					<?php echo "<h3>" . $teamname . "</h3>"; ?>
 					<a target="_blank" href="score.php?game=1">
 						<button type="button">Смотреть турнирную таблицу!</button>
 					</a>
 				</div>
 				<div class="input-container">
 					<select name="qnum" required>
-					<option value="" disabled selected hidden>На какой вопрос отвечаем?</option>
-					<?php
-					foreach ($questions as $question) {
-						echo ("<option value=" . $question[0] . ">Вопрос №" . $question[0] . "</option>");
-					}
-					?>
+						<option value="" disabled selected hidden>На какой вопрос отвечаем?</option>
+						<?php
+						foreach ($questions as $question) {
+							echo ("<option value=" . $question[0] . ">Вопрос №" . $question[0] . "</option>");
+						}
+						?>
 					</select>
 					<input type="text" name="answer" placeholder="Ваш ответ" required>
 					<div class="status-message"></div>
@@ -231,115 +439,71 @@ require_once "assets/api/get_bg.php";
 			</form>
 		</div>
 	<?php } else { ?>
-
-		<div class="card card-login">
-			<div class="card-header card-header-info text-center">
-				<h4 class="card-title"><img src="assets/img/avatar/<?php echo $teampic; ?>.svg" height="50px" />&nbsp;&nbsp;
-					<?php echo "Добро пожаловать, уважаемый " . $teamname . ". Что желаете?"; ?>
-				</h4>
-			</div>
-			<div class="card-body">
-				<center>
-					<a href="assets/api/logout.php"><button type="button" class="btn btn-primary btn-sm">Выйти</button></a>
-					<a href="inbox.php"><button type="button" class="btn btn-danger btn-sm">Смотреть
-							ответы!</button></a>
-					<a href="score.php"><button type="button" class="btn btn-success btn-sm">Смотреть
-							турнирную таблицу!</button></a>
+		<div class="admin-container">
+			<form class="logout-form" action="assets/api/logout.php">
+				<button type="submit" class="admin-logout-btn">Выйти</button>
+			</form>
+			<div class="admin-head">
+				<p><?php echo "Добро пожаловать, уважаемый " . $teamname . ". Что желаете?"; ?></p>
+				<div class="admin-nav">
+					<a href="inbox.php"><input type="button" value="Ответы"></input></a>
+					<a href="score.php"><input type="button" value="Турнирная таблица"></input></a>
 					<?php if ($isAdmin == true) { ?>
-						<a href="wheel.php"><button type="button" class="btn btn-success btn-sm">Открыть
-								барабан</button></a>
+						<a href="wheel.php"><input type="button" value="Открыть барабан"></input></a>
 					<?php } ?>
-					<div class="input-group" style="justify-content: center">
-						<label class="input-group-btn">
-							<span class="btn btn-success btn-sm" style="display: flex; align-items: center; height:95%;">
-								<span class="fileinput-new">Выберите изображение</span>
-								<input type="file" id="imageFile" name="file" accept="image/*" style="display: none;">
-							</span>
-						</label>
+				</div>
+			</div>
 
-						<button id="uploadBtn" class="btn btn-primary btn-sm">Сменить фоновое
-							изображение</button>
+			<div class="update-blocks-container">
+				<div class="update-block">
+					<div class="update-head">
+						<p>Изменить название</p>
 					</div>
-					<br>
-
-					<div class="row">
-						<div class="col-lg-6 col-md-6">
-							<div class="card">
-								<div class="card-header card-header-primary text-center">
-									<h4 class="card-title">Изменить название</h4>
-								</div>
-								<div class="card-body" style="padding: 0 10px 0 10px;">
-									<!-- Форма добавления вопроса -->
-									<form id="editForm">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Название Quiz"
-												id="quizName" name="quizName" required>
-										</div>
-										<button type="submit" class="btn btn-primary btn-block">Сохранить</button>
-									</form>
-									<div id="message"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-6">
-							<div class="card">
-								<div class="card-header card-header-primary text-center">
-									<h4 class="card-title">Изменить максимальный балл</h4>
-								</div>
-								<div class="card-body" style="padding: 0 10px 0 10px;">
-									<!-- Форма изменения баллов -->
-									<form id="editScoreForm">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Максимальный балл"
-												id="quizMaxScore" name="quizMaxScore" required>
-										</div>
-										<button type="submit" class="btn btn-primary btn-block">Сохранить</button>
-									</form>
-									<div id="scoreMessage"></div>
-								</div>
-							</div>
-						</div>
+					<input type="text" class="form-control change-input" placeholder="Название Quiz" id="quizName" name="quizName" required>
+					<input type="button" class="save-btn quiz_name_save" value="Сохранить"></input>
+				</div>
+				<div class="update-block">
+					<div class="update-head">
+						<p>Изменить фон</p>
 					</div>
-
-					<br>
-					<div class="row">
-						<div class="col-lg-10 col-md-8 ml-auto mr-auto">
-							<div class="card">
-								<div class="card-header card-header-primary text-center">
-									<h4 class="card-title">Вопросы</h4>
-								</div>
-								<div class="card-body" style="padding: 0 10px 0 10px;">
-									<!-- Форма добавления вопроса -->
-									<form id="addQuestionForm">
-										<div class="form-group">
-											<div id="summernote">
-												<textarea class="form-control" id="newQuestionTxt" name="newQuestionTxt"
-													value="текст"></textarea>
-											</div>
-											<input type="text" class="form-control" id="newQuestionType"
-												name="newQuestionType" placeholder="Тип вопроса" required>
-											<input type="text" class="form-control" id="newQuestionScore"
-												name="newQuestionScore" placeholder="Максимальный балл" required>
-											<input type="text" class="form-control" id="newQuestionAnsw"
-												name="newQuestionAnsw" placeholder="Правильный ответ" required>
-										</div>
-										<button type="submit" class="btn btn-primary btn-block">Добавить
-											вопрос</button>
-									</form>
-								</div>
-							</div>
-							<div class="card">
-								<div class="card-body" style="padding: 0 10px 0 10px;">
-									<!-- Список существующих вопросов -->
-									<div id="existingQuestions">
-										<?php include 'assets/api/get_questions_script.php'; ?>
-									</div>
-								</div>
-							</div>
-						</div>
+					<label for="imageFile" class="custom-file-upload  change-input">
+						Выбрать изображение
+					</label>
+					<input type="file" id="imageFile" name="file" accept="image/*">
+					<input type="button" id="uploadBtn" class="save-btn" value="Сохранить"></input>
+				</div>
+				<div class="update-block">
+					<div class="update-head">
+						<p>Изменить балл</p>
 					</div>
-					<br /><br /><br /><br />
-				</center>
+					<input type="text" class="form-control change-input" placeholder="Максимальный балл" id="quizMaxScore"
+						name="quizMaxScore" required>
+					<input type="button" class="save-btn quiz_score_save" value="Сохранить"></input>
+				</div>
+			</div>
+			<!-- добавление вопроса -->
+			<div class="add-question-container">
+				<div class="update-block insert-question">
+					<div class="update-head insert-question-head">
+						<p>Новый вопрос</p>
+					</div>
+					<div id="summernote">
+						<textarea class="form-control" id="newQuestionTxt" name="newQuestionTxt" value="текст"></textarea>
+					</div>
+					<input type="text" class="form-control change-input" id="newQuestionType" name="newQuestionType"
+						placeholder="Тип вопроса" required>
+					<input type="text" class="form-control change-input" id="newQuestionScore" name="newQuestionScore"
+						placeholder="Максимальный балл" required>
+					<input type="text" class="form-control change-input" id="newQuestionAnsw" name="newQuestionAnsw"
+						placeholder="Правильный ответ" required>
+					<input type="button" class="question_insert" value="Добавить вопрос"></input>
+				</div>
+			</div>
+			<div id="message"></div>
+			<div id="scoreMessage"></div>
+			<!-- Список существующих вопросов -->
+			<div id="existingQuestions" class="questions-container">
+				<?php include 'assets/api/get_questions_script.php'; ?>
 			</div>
 		</div>
 	<?php }
