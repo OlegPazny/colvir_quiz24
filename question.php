@@ -23,18 +23,28 @@ require_once "assets/api/get_bg.php"
 		href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&display=swap"
 		rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 	<!-- CSS Files -->
 	<link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
 
 
 </head>
 <style>
-	.container{
-		max-width:95%;
+	*{
+		font-family:"Oswald";
 	}
-	* {
-		font-family: "Jura", "Helvetica", "Arial", sans-serif !important;
-		font-weight: 500 !important;
+	body{
+		padding-top:2%;
+	}
+	h1{
+		margin:0;
+	}
+	.container {
+		max-width: 95%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
 	}
 
 	.video-container {
@@ -51,94 +61,146 @@ require_once "assets/api/get_bg.php"
 		width: 100%;
 		height: 100%;
 	}
-	.carousel, .carousel-inner, .carousel-control-prev, .carousel-control-next{
-		height:90vh;
+
+	.carousel{
+		width:70%;
 	}
+	.carousel,
+	.carousel-inner,
+	.carousel-control-prev,
+	.carousel-control-next {
+		height: 75vh;
+	}
+
 	.carousel-item {
-		overflow-y: auto; /* Включить вертикальную прокрутку, если содержимое не помещается */
-		max-height: 100vh; /* Максимальная высота равна высоте экрана */
+		overflow-y: auto;
+		/* Включить вертикальную прокрутку, если содержимое не помещается */
+		max-height: 100vh;
+		/* Максимальная высота равна высоте экрана */
 	}
-	h3{
-		padding-bottom:1%;
-		border-bottom: 2px solid #C8C8C8;
+	.carousel-inner{
+		background-color: white;
+		border-radius: 15px;
+		margin-top:2%;
+		padding:2%;
+		border:3px solid #f3f3f3;
 	}
+	.time-control-block {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #1163ae;
+		border-radius: 15px;
+		height: fit-content;
+		width:fit-content;
+		padding:2%;
+		padding-top:4%;
+	}
+	.btn-controls{
+		margin-top:10%;
+	}
+	.control-btn{
+		background-color: white;
+		border: 1px solid #1163ae;
+		color:#1163ae;
+		border-radius: 5px;
+		padding:5px 10px;
+		font-size: 22px;
+		width: max-content;
+		margin-bottom: 10px; /* Отступ между кнопками */
+		transition: 0.5s ease-in-out;
+		cursor: pointer;
+	}
+	.control-btn:hover{
+		color:white;
+		background-color: #1163ae;
+		border:1px solid white;
+		transition: 0.5s ease-in-out;
+	}
+	.carousel-head{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .carousel-head h1{
+      color:black;
+      font-family: "Oswald";
+	  font-weight: bold;
+	  margin-bottom:1%;
+    }
+    .q-blue{
+      color:#1163ae;
+    }
+    .question-type{
+      background-color: #1163ae !important;
+	  color:white;
+      border-radius: 5px;
+      width:fit-content;
+      height: fit-content;
+      padding:5px 10px;
+      font-family: "Oswald";
+      font-size:1.5rem;
+      text-align: center;
+      font-weight: normal;
+    }
 </style>
 <?php if ($isAdmin == true || $isAssistant == true || $isColvir == true) { ?>
-	<body class="login-page sidebar-collapse"
-		style="background-image: url('data:image/jpeg;base64,<?php echo ($bg); ?>'); background-size:cover; background-repeat:no repeat;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-9 ml-auto mr-auto h-100 d-flex">
-					<div class="card card-login2">
-						<form class="form" method="" action="">
-							<div class="card-body">
-								<div id="carouselExampleControls" class="carousel slide" data-ride="carousel"
-									data-interval="false">
-									<div class="carousel-inner">
-										<div class="carousel-item active">
-											<h3><strong>Вопрос #<?php echo $qnum; ?>
-												</strong> -
-												<?php echo $qtype; ?>
-											</h3>
-											<center>
-												<?php if ($isMusic == true) { ?>
-													<div class="video-container">
-														<iframe width="330" height="200"
-															src="https://www.youtube.com/embed/<?php echo ($video_id); ?>"
-															frameborder="0"
-															allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-															allowfullscreen>
-														</iframe>
-													</div>
-												<?php } else { ?>
-														<h1>
-															<?php echo ($qtext); ?>
-														</h1>
-												<?php } ?>
-											</center>
-										</div>
-										<div class="carousel-item">
-											<h3><strong>Вопрос #<?php echo $qnum; ?>
-												</strong> - Ответ</h3>
-											<center>
-												<h1>
-													<?php echo $qansw; ?>
-												</h1>
-											</center>
-										</div>
-									</div>
-									<a id="prv" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-										data-slide="prev">
-										<span class="sr-only">Назад</span>
-									</a>
-									<a id="nxt" class="carousel-control-next" href="#carouselExampleControls" role="button"
-										data-slide="next" onclick="rsoundPlay();return false;">
-										<span class="sr-only">Далее</span>
-									</a>
 
-								</div>
+	<body>
+		<div class="container">
+			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+				<div class="carousel-head">
+					<h1>Вопрос <span class="q-blue">№<?php echo $qnum; ?></span></h1> 
+					<div class="question-type">
+						<?php echo $qtype; ?>
+					</div>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						
+						<?php if ($isMusic == true) { ?>
+							<div class="video-container">
+								<iframe width="330" height="200" src="https://www.youtube.com/embed/<?php echo ($video_id); ?>"
+									frameborder="0"
+									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen>
+								</iframe>
 							</div>
-						</form>
+						<?php } else { ?>
+							<h1>
+								<?php echo ($qtext); ?>
+							</h1>
+						<?php } ?>
+					</div>
+					<div class="carousel-item">
+						<h1>
+							<?php echo $qansw; ?>
+						</h1>
 					</div>
 				</div>
-				<div class="col-lg-3 ml-auto mr-auto h-100 d-flex">
-					<div class="card card-login2">
-						<div class="card-body"><br /><br />
-							<center>
-								<audio id="qsound" src="assets/mp3/qsound.mp3" volume="0.3" loop></audio>
-								<span style="font-size:120px; color: black;" id="seconds">00</span>&nbsp;&nbsp;<span
-									style="font-size:90px; color: black; "></span><br /><span
-									style="font-size:60px; color: black; visibility: hidden;" id="tens">00</span><br />
-								<button id="button-start" type="button" class="btn btn-success">Старт</button>
-								<button type="button" class="btn btn-danger" id="button-stop">Стоп</button>
-								<button id="button-reset" type="button" class="btn btn-primary">Сброс</button>
-								<audio id="msound" src="assets/mp3/readingnew3.mp3" volume="0.35" loop autoplay></audio>
-								<audio id="rsound" src="assets/mp3/zastavka.mp3" volume="0.35" loop></audio>
-							</center>
-						</div>
-					</div>
-				</div>
+				<a id="prv" class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+					<span class="sr-only">Назад</span>
+				</a>
+				<a id="nxt" class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"
+					onclick="rsoundPlay();return false;">
+					<span class="sr-only">Далее</span>
+				</a>
+
 			</div>
+			<div class="time-control-block">
+				<audio id="qsound" src="assets/mp3/qsound.mp3" volume="0.3" loop></audio>
+				<span style="font-size:120px; color: white;" id="seconds">00</span><span
+					style="font-size:90px; color: black; "></span><span
+					style="font-size:60px; color: black; visibility: hidden;" id="tens">00</span><br />
+				<div class="btn-controls">
+					<button id="button-start" class="control-btn" type="button">Старт</button>
+					<button id="button-stop" class="control-btn" type="button">Стоп</button>
+					<button id="button-reset" class="control-btn" type="button">Сброс</button>
+				</div>
+				<audio id="msound" src="assets/mp3/readingnew3.mp3" volume="0.35" loop autoplay></audio>
+				<audio id="rsound" src="assets/mp3/zastavka.mp3" volume="0.35" loop></audio>
+			</div>
+		</div>
 		</div>
 		<!--   Core JS Files   -->
 		<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
