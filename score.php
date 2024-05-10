@@ -19,10 +19,13 @@ require_once "assets/api/get_bg.php";
 	<link rel="stylesheet" type="text/css"
 		href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Open+Sans:ital,wght@0,305;1,305&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 	<!-- CSS Files -->
 	<link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="assets/demo/demo.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <style>
 	body {
@@ -31,67 +34,12 @@ require_once "assets/api/get_bg.php";
 		display: flex;
 		flex-direction: column;
 	}
-
-	.title {
-		color: #1163ae;
-	}
-	.cards-container{
-		width:90vw;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-	}
-	.card-body h4{
-		margin:0;
-		margin-bottom: 10px;
-		font-weight: 500;
-	}
-	.card-container{
-		width: calc(30% - 140px); /* Ширина карточки на 30% ширины контейнера минус отступы */
-    	margin: 40px; /* Отступы между карточками */
-		margin-top:10px;
-		margin-bottom: 10px;
-	}
-	.card{
-		background-color: #1163ae;
-		border-radius: 15px;
-		color:white;
-	}
-	.progress{
-		width:70%;
-		background-color: white;
-		border-radius:5px;
-	}
-	.progress-bar{
-		border-radius: 5px;
-	}
-
-	input[type="button"]{
-		border:none;
-		background-color: #1163ae;
-		color:white;
-		border-radius: 5px;
-		font-size: 24px;
-		padding:15px 25px;
-		margin-top:10px;
-		margin-bottom:10px;
-		cursor: pointer;
-		font-weight: bold;
-		text-transform: uppercase;
-		transition: 0.5s ease-in-out;
-	}
-	input[type="button"]:hover{
-		transition: 0.5s ease-in-out;
-		color:#1163ae;
-		background-color: white;
-		border:1px solid #1163ae;
-	}
 </style>
 
 <body>
-	<h2 class="title">Турнирная таблица</h2>
+	<h2 class="score-title">Турнирная таблица</h2>
 
-	<div class="cards-container">
+	<div class="score-cards-container">
 		<?php
 		$i = 1;
 		foreach ($teams as $team) {
@@ -100,8 +48,8 @@ require_once "assets/api/get_bg.php";
 			}
 			$progressbar_width = $team[2] * 100 / $max_score;
 			echo ("
-					<div class='card-container'>
-						<div class='card' style='height:75%'>
+					<div class='score-card-container'>
+						<div class='score-card-container__card card'>
 							<div class='card-body d-flex flex-column'>
 								<h4 class='text-left'>" . $i . ". <img src='assets/img/avatar/" . $team[3] . ".svg'
 										height='45px' />&nbsp;&nbsp;
@@ -125,7 +73,7 @@ require_once "assets/api/get_bg.php";
 		?>
 	</div>
 	<a href="index.php">
-		<input type="button" value="На главную">
+		<input class="score-btn" type="button" value="На главную">
 	</a>
 
 	<!--   Core JS Files   -->

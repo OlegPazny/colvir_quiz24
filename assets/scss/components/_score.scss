@@ -1,0 +1,59 @@
+.score-title {
+    color: #1163ae;
+    font-family: "Oswald";
+    font-size: 64px;
+    font-weight: bold;
+}
+.score-cards-container{
+    width:90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card-body h4{
+    margin:0;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.score-card-container{
+    width: calc(30% - 140px); /* Ширина карточки на 30% ширины контейнера минус отступы */
+    margin: 40px; /* Отступы между карточками */
+    margin-top:10px;
+    margin-bottom: 10px;
+
+    &__card{
+        background-color: #1163ae;
+        border-radius: 15px;
+        color:white;
+        height:75%;
+    }
+}
+.progress{
+    width:70%;
+    background-color: white;
+    border-radius:5px;
+}
+.progress-bar{
+    border-radius: 5px;
+}
+
+.score-btn{
+    border:1px solid white;
+    background-color: #1163ae;
+    color:white;
+    border-radius: 5px;
+    font-size: 24px;
+    padding:15px 25px;
+    margin-top:10px;
+    margin-bottom:10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+.score-btn:hover{
+    transition: 0.5s ease-in-out;
+    color:#1163ae;
+    background-color: white;
+    border:1px solid #1163ae;
+}

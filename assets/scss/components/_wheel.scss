@@ -1,0 +1,38 @@
+#chart svg {
+    max-width: 100%;
+    max-height: 100%;
+    width:auto;
+    height: auto;
+  }
+  .slice path {
+    stroke: white; /* Цвет границы */
+    stroke-width: 3px; /* Ширина границы */
+  }
+  #question h1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  #question h1 a{
+    color:black;
+    font-family: "Oswald";
+  }
+  .q-blue{
+    color:#1163ae;
+  }
+  .question-type{
+    background-color: #1163ae !important;
+    border-radius: 5px;
+    width:fit-content;
+    height: fit-content;
+    padding:5px 10px;
+    font-family: "Oswald";
+    font-size:1.5rem;
+    text-align: center;
+    font-weight: normal;
+  }
+  .slice text{
+    font-family: "Oswald";
+    fill:white;
+    font-weight: normal;
+  }

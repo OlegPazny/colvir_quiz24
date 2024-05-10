@@ -1,0 +1,111 @@
+.inbox-container{
+    margin-top:10vh;
+}
+.btn-container{
+    display: flex;
+    flex-wrap: wrap;
+
+    &__btn, &__btn-white{
+        background-color: #1163ae;
+        border: 1px solid #1163ae;
+        color:white;
+        border-radius: 5px;
+        padding:5px 10px;
+        font-size: 22px;
+        width: max-content;
+        margin-bottom: 10px; /* Отступ между кнопками */
+        transition: 0.5s ease-in-out;
+    }
+    &__btn:hover{
+        color:#1163ae;
+        background-color: white;
+        border:1px solid #1163ae;
+        transition: 0.5s ease-in-out;
+    }
+    &__btn-white{
+        color:#1163ae;
+        background-color: white;
+        border:1px solid #1163ae;
+        transition: 0.5s ease-in-out;
+    }
+    &__btn-white:hover{
+        color:white;
+        background-color: #1163ae;
+        transition: 0.5s ease-in-out;
+    }
+}
+.dropdown-menu a:hover{
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(39 132 176 / 40%) !important;
+    background-color:#b0d6ff !important;
+}
+.table-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__head{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & a h2{
+            font-family: "Dezen Pro";
+            color:black;
+            font-weight: bold;
+            font-size:64px;
+            letter-spacing: 2px;
+        }
+        & h4{
+            font-family: "Oswald";
+            color:black;
+            font-size:18px;
+            font-weight: bold;
+            text-transform: lowercase;
+        }
+    }
+}
+
+#answers-table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+p{
+    font-weight: bold;
+}
+tr th{
+    border:none !important;
+    color: #1163ae;
+}
+tr td{
+    font-weight: bold;
+}
+thead{
+    border:none;
+    border-bottom:1px solid #dadada;
+}
+.table{
+    background-color:#ffffffba;
+    border-radius:5px;
+}
+
+.bottom-nav{
+
+    &__btn{
+        background-color: #1163ae;
+        border: 1px solid #1163ae;
+        color:white;
+        border-radius: 5px;
+        padding:5px 10px;
+        font-size: 22px;
+        width: max-content;
+        margin-bottom: 10px; /* Отступ между кнопками */
+        transition: 0.5s ease-in-out;
+    }
+    &__btn:hover{
+        color:#1163ae;
+        background-color: white;
+        border:1px solid #1163ae;
+        transition: 0.5s ease-in-out;
+    }
+}

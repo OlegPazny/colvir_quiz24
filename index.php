@@ -49,6 +49,7 @@ require_once "assets/api/get_bg.php";
 	<link href="assets/demo/demo.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="assets/css/summernote.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -57,350 +58,6 @@ require_once "assets/api/get_bg.php";
 	body {
 		background-image: url("assets/img/Картинки/bg_1.svg");
 		background-size: cover;
-	}
-
-	.user-container {
-		height: 100vh;
-		width: 95vw;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.admin-container{
-		margin:5% 12%;
-		background-color: white;
-		padding:2%;
-		border-radius: 10px;
-		display:flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.user-form {
-		display: flex;
-		width: 60%;
-		justify-content: center;
-		align-self: center;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.head {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		background-color: #1163ae;
-		align-items: center;
-		padding: 15px 20px;
-		border-radius: 25px;
-		border: 1px solid #4082be;
-		color: white;
-		margin-bottom: 25px;
-	}
-
-	.head p {
-		font-size: 24px;
-		font-weight: 400;
-		margin: 0;
-		margin-right: 10px;
-	}
-
-	.head img {
-		margin-right: 10px;
-	}
-
-	.head h3 {
-		font-size: 48px;
-		font-weight: bolder;
-		margin-right: 10px;
-	}
-
-	.head a button,
-	input[type="submit"] {
-		border: none;
-		font-weight: bold;
-		background-color: #78b64e;
-		color: white;
-		border-radius: 5px;
-		font-size: 24px;
-		padding: 5px 15px;
-		margin-top: 10px;
-		cursor: pointer;
-		transition: 0.5s ease-in-out;
-	}
-
-	.head a button:hover,
-	input[type="submit"]:hover {
-		transition: 0.5s ease-in-out;
-		background-color: #89d555;
-	}
-
-	.input-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background-color: white;
-		border-radius: 25px;
-		padding: 30px 25px;
-		width: 100%;
-	}
-
-	.input-container select,
-	input[type="text"],
-	input[type="text"]::placeholder {
-		width: 100%;
-		background-color: #1163ae;
-		color: white;
-		font-size: 24px;
-		border: none;
-		border-radius: 10px;
-		padding: 15px 10px;
-		margin-bottom: 15px;
-	}
-
-	.logout-btn {
-		position: absolute;
-		border: none;
-		color: #1163ae;
-		background-color: white;
-		font-weight: bold;
-		font-size: 24px;
-		padding: 10px 15px;
-		border-radius: 10px;
-		cursor: pointer;
-		transition: 0.5s ease-in-out;
-	}
-
-	.logout-btn:hover {
-		transition: 0.5s ease-in-out;
-		background-color: #f1f1f1;
-	}
-
-	#exampleFormControlInput1 {
-		width: 15%;
-	}
-
-	.note-toolbar {
-		background-color: white;
-		border-bottom: 1px solid gray;
-		border-radius: 7px 7px 0 0;
-	}
-
-	.note-editing-area {
-		background-color: white;
-		border-radius: 0 0 7px 7px;
-	}
-
-	.note-editor {
-		border-radius: 7px;
-	}
-
-	.dropdown-toggle,
-	.btn-sm {
-		background-color: transparent;
-	}
-
-	.modal-content {
-		align-items: flex-start;
-	}
-
-	.modal-title {
-		margin-left: 1rem;
-	}
-
-	.note-editable {
-		text-align: justify;
-	}
-
-	.card-body,
-	.card-login {
-		padding: 0 10px 0 10px !important;
-	}
-
-
-	.admin-head{
-		background-color: #1163ae;
-		border-radius:5px;
-		color:white;
-		font-family:"Oswald";
-		padding:1%
-	}
-	.admin-head p{
-		font-size: 24px;
-		letter-spacing: 0.5px;
-		margin:0;
-	}
-	.admin-logout-btn{
-		border: 1px solid #1163ae;
-		color: #1163ae;
-		background-color: white;
-		font-weight: bold;
-		font-size: 24px;
-		padding: 10px 15px;
-		border-radius: 10px;
-		cursor: pointer;
-		transition: 0.5s ease-in-out;
-	}
-
-	.admin-logout-btn:hover {
-		transition: 0.5s ease-in-out;
-		background-color: #1163ae;
-		color:white;
-	}
-	.logout-form{
-		position:absolute;
-		left:13%;
-	}
-	.admin-nav{
-		display:flex;
-		flex-direction:row;
-		justify-content: space-around;
-		margin-top:1%;
-	}
-	button, input[type="button"]{
-		background-color: white;
-		border: 1px solid #1163ae;
-		color:#1163ae;
-		border-radius: 5px;
-		padding:5px 10px;
-		font-size: 22px;
-		width: max-content;
-		margin-bottom: 10px; /* Отступ между кнопками */
-		transition: 0.5s ease-in-out;
-		cursor:pointer;
-	}
-	button:hover, input[type="button"]:hover{
-		color:white;
-		background-color: #1163ae;
-		border:1px solid white;
-		transition: 0.5s ease-in-out;
-	}
-
-	.update-blocks-container{
-		display:flex;
-		flex-direction:row;
-		margin-top:5%;
-		margin-bottom:5%;
-		width:70%;
-		justify-content: space-between;
-	}
-	.add-question-container{
-		margin-top:5%;
-	}
-	.questions-container{
-		width:100%;
-		margin-top:10%;
-	}
-	.update-block{
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		background-color: #f9f9f9;
-		padding:1%;
-		width:30%;
-		height: auto;
-		border-radius: 5px;
-	}
-	.insert-question{
-		width:100%;
-	}
-	.update-head{
-		background-color:#1163ae;
-		text-align: center;
-		border-radius: 5px;
-		padding:2%;
-		margin-top:-10%;
-		width:100%;
-		margin-bottom:5%;
-	}
-	.insert-question-head{
-		margin-top:-5%;
-		margin-bottom:2%;
-	}
-	.update-head p{
-		color:white;
-		font-family: "Oswald";
-		font-size:24px;
-		margin:0;
-	}
-	.save-btn{
-		margin-bottom:-10% !important;
-	}
-	.save-btn, .question_insert, .control-btn{
-		background-color: #1163ae !important;
-		border: 1px solid white !important;
-		color:white !important;
-	}
-	.save-btn:hover, .question_insert:hover, .control-btn:hover{
-		background-color: white !important;
-		border: 1px solid #1163ae !important;
-		color:#1163ae !important;
-	}
-	.question_insert{
-		margin-bottom:-3% !important;
-	}
-	input[type="file"] {
-		display: none;
-	}
-
-	.custom-file-upload {
-		background-color: white;
-		border: 1px solid #1163ae;
-		color:#1163ae;
-		border-radius: 5px;
-		padding:5px 10px;
-		font-size: 18px;
-		width: 100%;
-		transition: 0.5s ease-in-out;
-		cursor:pointer;
-		margin-bottom: 15px;
-	}
-	.custom-file-upload:hover{
-		color:white;
-		background-color: #1163ae;
-		border:1px solid white;
-		transition: 0.5s ease-in-out;
-	}
-
-	.change-input{
-		background-color: white !important;
-		border:1px solid #1163ae !important;
-		color:#1163ae !important;
-		font-size:20px !important;
-		border-radius: 5px !important;
-	}
-	.change-input::placeholder{
-		background-color: white !important;
-		color:#1163ae !important;
-		font-size:20px !important;
-	}
-	#summernote{
-		margin-bottom: 2%;
-	}
-	.question-card{
-		background-color: #f9f9f9;
-		border-radius: 5px;
-		padding:2%;
-		margin-bottom:1%;
-	}
-	.card-block{
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.questions-control-block{
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		width:30%;
-	}
-	.card-text{
-		margin:0 !important;
-		font-family: "Oswald";
-		font-size:18px;
-		font-weight: bold;
 	}
 </style>
 
@@ -413,9 +70,9 @@ require_once "assets/api/get_bg.php";
 	; ?>
 	<!-- проверка на админа -->
 	<?php if ($isAdmin != true && $isAssistant != true && $isColvir != true) { ?>
-		<div class="user-container">
-			<form class="user-form" method="POST">
-				<div class="head">
+		<div class="send-answer-container">
+			<form class="send-answer__form" method="POST">
+				<div class="send-answer__form__head">
 					<p>Команда </p>
 					<img src="assets/img/avatar/<?php echo $teampic; ?>.svg" height="50px" />
 					<?php echo "<h3>" . $teamname . "</h3>"; ?>
@@ -423,7 +80,7 @@ require_once "assets/api/get_bg.php";
 						<button type="button">Смотреть турнирную таблицу!</button>
 					</a>
 				</div>
-				<div class="input-container">
+				<div class="send-answer__form__answ-container">
 					<select name="qnum" required>
 						<option value="" disabled selected hidden>На какой вопрос отвечаем?</option>
 						<?php
@@ -432,9 +89,9 @@ require_once "assets/api/get_bg.php";
 						}
 						?>
 					</select>
-					<input type="text" name="answer" placeholder="Ваш ответ" required>
+					<input type="text" name="answer" class="send-answer__form__answ-container__answ" placeholder="Ваш ответ" required>
 					<div class="status-message"></div>
-					<input class="send_answ" type="submit" name="send_answ" value="Отправить ответ" />
+					<input class="send_answ send-answer__form__answ-container__btn" type="submit" name="send_answ" value="Отправить ответ" />
 				</div>
 			</form>
 		</div>
@@ -443,27 +100,27 @@ require_once "assets/api/get_bg.php";
 			<form class="logout-form" action="assets/api/logout.php">
 				<button type="submit" class="admin-logout-btn">Выйти</button>
 			</form>
-			<div class="admin-head">
+			<div class="admin-container__head">
 				<p><?php echo "Добро пожаловать, уважаемый " . $teamname . ". Что желаете?"; ?></p>
 				<div class="admin-nav">
-					<a href="inbox.php"><input type="button" value="Ответы"></input></a>
-					<a href="score.php"><input type="button" value="Турнирная таблица"></input></a>
+					<a href="inbox.php"><input class="admin-nav__btn" type="button" value="Ответы"></input></a>
+					<a href="score.php"><input class="admin-nav__btn" type="button" value="Турнирная таблица"></input></a>
 					<?php if ($isAdmin == true) { ?>
-						<a href="wheel.php"><input type="button" value="Открыть барабан"></input></a>
+						<a href="wheel.php"><input class="admin-nav__btn" type="button" value="Открыть барабан"></input></a>
 					<?php } ?>
 				</div>
 			</div>
 
 			<div class="update-blocks-container">
 				<div class="update-block">
-					<div class="update-head">
+					<div class="update-block__head">
 						<p>Изменить название</p>
 					</div>
 					<input type="text" class="form-control change-input" placeholder="Название Quiz" id="quizName" name="quizName" required>
 					<input type="button" class="save-btn quiz_name_save" value="Сохранить"></input>
 				</div>
 				<div class="update-block">
-					<div class="update-head">
+					<div class="update-block__head">
 						<p>Изменить фон</p>
 					</div>
 					<label for="imageFile" class="custom-file-upload  change-input">
@@ -473,7 +130,7 @@ require_once "assets/api/get_bg.php";
 					<input type="button" id="uploadBtn" class="save-btn" value="Сохранить"></input>
 				</div>
 				<div class="update-block">
-					<div class="update-head">
+					<div class="update-block__head">
 						<p>Изменить балл</p>
 					</div>
 					<input type="text" class="form-control change-input" placeholder="Максимальный балл" id="quizMaxScore"
@@ -484,7 +141,7 @@ require_once "assets/api/get_bg.php";
 			<!-- добавление вопроса -->
 			<div class="add-question-container">
 				<div class="update-block insert-question">
-					<div class="update-head insert-question-head">
+					<div class="update-block__head insert-question__head">
 						<p>Новый вопрос</p>
 					</div>
 					<div id="summernote">
@@ -496,7 +153,7 @@ require_once "assets/api/get_bg.php";
 						placeholder="Максимальный балл" required>
 					<input type="text" class="form-control change-input" id="newQuestionAnsw" name="newQuestionAnsw"
 						placeholder="Правильный ответ" required>
-					<input type="button" class="question_insert" value="Добавить вопрос"></input>
+					<input type="button" class="insert-question__submit" value="Добавить вопрос"></input>
 				</div>
 			</div>
 			<div id="message"></div>

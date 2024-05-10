@@ -1,0 +1,18 @@
+@import "./components/_inbox.scss";
+@import "./components/_index.scss";
+@import "./components/_question.scss";
+@import "./components/_score.scss";
+@import "./components/_wheel.scss";
+@import "./components/_signin.scss";
+
+@font-face {
+    font-family: 'Dezen Pro';
+    src: url('DezenProBold.eot');
+    src: local('Dezen Pro Bold'), local('DezenProBold'),
+        url('../fonts/Dezen\ Pro/DezenProBold.eot') format('embedded-opentype'),
+        url('../fonts/Dezen\ Pro/DezenProBold.woff2') format('woff2'),
+        url('../fonts/Dezen\ Pro/DezenProBold.woff') format('woff'),
+        url('../fonts/Dezen\ Pro/DezenProBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

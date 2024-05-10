@@ -45,6 +45,7 @@ require_once "assets/api/quiz_name_script.php";
 	<!-- Bootstrap Select CSS (если требуется) -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"
 		rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
 	<!-- jQuery (необходим для Bootstrap и Bootstrap Select) -->
 	
@@ -59,17 +60,6 @@ require_once "assets/api/quiz_name_script.php";
 
 </head>
 <style>
-	@font-face {
-    font-family: 'Dezen Pro';
-    src: url('DezenProBold.eot');
-    src: local('Dezen Pro Bold'), local('DezenProBold'),
-        url('assets/fonts/Dezen\ Pro/DezenProBold.eot') format('embedded-opentype'),
-        url('assets/fonts/Dezen\ Pro/DezenProBold.woff2') format('woff2'),
-        url('assets/fonts/Dezen\ Pro/DezenProBold.woff') format('woff'),
-        url('assets/fonts/Dezen\ Pro/DezenProBold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
 	body{
 		background-image: url("assets/img/bg_2.svg");
 		background-size: cover;
@@ -77,101 +67,13 @@ require_once "assets/api/quiz_name_script.php";
 		background-attachment: fixed;
 		font-family: "Oswald";
 	}
-	.container{
-		margin-top:10vh;
-	}
-	button, input[type="button"]{
-		background-color: #1163ae;
-		border: 1px solid #1163ae;
-		color:white;
-		border-radius: 5px;
-		padding:5px 10px;
-		font-size: 22px;
-		width: max-content;
-		margin-bottom: 10px; /* Отступ между кнопками */
-		transition: 0.5s ease-in-out;
-	}
-	button:hover, input[type="button"]:hover{
-		color:#1163ae;
-		background-color: white;
-		border:1px solid #1163ae;
-		transition: 0.5s ease-in-out;
-	}
-	.show-all-answers, .tournament{
-		color:#1163ae;
-		background-color: white;
-		border:1px solid #1163ae;
-		transition: 0.5s ease-in-out;
-	}
-	.show-all-answers:hover,.tournament:hover{
-		color:white;
-		background-color: #1163ae;
-		transition: 0.5s ease-in-out;
-	}
-	.btn-container{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.dropdown-menu a:hover{
-		box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(39 132 176 / 40%) !important;
-		background-color:#b0d6ff !important;
-	}
-	.table-section{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.head{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.head a h2{
-		font-family: "Dezen Pro";
-		color:black;
-		font-weight: bold;
-		font-size:64px;
-		letter-spacing: 2px;
-	}
-	.head h4{
-		font-family: "Oswald";
-		color:black;
-		font-size:18px;
-		font-weight: bold;
-		text-transform: lowercase;
-		
-	}
-
-	#answers-table{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	p{
-		font-weight: bold;
-	}
-	tr th{
-		border:none !important;
-		color: #1163ae;
-	}
-	tr td{
-		font-weight: bold;
-	}
-	thead{
-		border:none;
-		border-bottom:1px solid #dadada;
-	}
-	.table{
-		background-color:#ffffffba;
-		border-radius:5px;
-	}
 </style>
 <body>
-		<div class="container">
+		<div class="inbox-container">
 			<!-- проверка на админку -->
 			<?php if ($isAdmin == true || $isAssistant == true || $isColvir == true) { ?>
 				<div class="table-section">
-					<div class="head">
+					<div class="table-section__head">
 							<a href="index.php">
 								<h2>
 									<?php echo ($quiz_name); ?>
@@ -183,7 +85,7 @@ require_once "assets/api/quiz_name_script.php";
 						<div class="btn-container">
 							<?php foreach ($questions as $question): ?>
 								<div style="margin-right:2%">
-									<button type="button" class="show-answers"
+									<button class="btn-container__btn show-answers" type="button" class="show-answers"
 										data-question-id="<?php echo $question[0]; ?>">
 										Вопрос 
 										<?php echo $question[0]; ?>
@@ -191,17 +93,17 @@ require_once "assets/api/quiz_name_script.php";
 								</div>
 							<?php endforeach; ?>
 							<div style="margin-right:2%">
-								<button type="button" class="show-all-answers">
+								<button type="button" class="btn-container__btn-white show-all-answers">
 									Результаты
 								</button>
 							</div>
 							<div>
-								<button type="button" class="tournament">
+								<button type="button" class="btn-container__btn-white tournament">
 									Турнирная таблица
 								</button>
 							</div>
 						</div>
-						<div class="tables">
+						<div class="inbox-container__tables">
 							<?php foreach ($questions as $question): ?>
 								<div class="row mt-4" id="answers-container" style="display: none; width: 100%"
 									data-question-id="<?php echo $question[0]; ?>">
@@ -334,9 +236,9 @@ require_once "assets/api/quiz_name_script.php";
 					</div>
 					<div id="statusMessage"></div>
 					<div class="bottom-nav">
-						<a href="index.php"><input type="button" value="На главную"></a>
-						<input type="button" id="updateBtn" value="Сохранить">
-						<input type="button" id="updateScoresBtn" value="Обновить турнирную таблицу">
+						<a href="index.php"><input class="bottom-nav__btn" type="button" value="На главную"></a>
+						<input class="bottom-nav__btn" type="button" id="updateBtn" value="Сохранить">
+						<input class="bottom-nav__btn" type="button" id="updateScoresBtn" value="Обновить турнирную таблицу">
 					</form>
 
 				</div>

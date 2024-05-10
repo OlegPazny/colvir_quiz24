@@ -1,0 +1,94 @@
+.signin-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__block{
+        width: 25%;
+    }
+    &__head{
+        width: 100%;
+        border: 1px solid #4082be;
+        background-color: #1163ae;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 25px;
+        padding: 25px 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    & h3{
+        color: white;
+        font-size: 45px;
+        font-weight: bold;
+        text-align: center;
+    }
+    & h4{
+        font-size: 30px;
+        font-weight: 500;
+        color: white;
+    }
+}
+
+.signin-form-container {
+    width: 100%;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+    &__input-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        border: 1px solid #4082be;
+        border-radius: 25px;
+        padding: 45px 35px;
+        padding-top: 30px;
+    }
+}
+
+.login, .password {
+    height: 60px;
+    border: none;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.login::placeholder,
+.password::placeholder {
+    font-weight: bold;
+    color: #7f7f7f;
+}
+
+.login-btn {
+    border: none;
+    background-color: #78b64e;
+    color: white;
+    border-radius: 5px;
+    font-size: 24px;
+    padding: 10px 25px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.message {
+    color: #951212;
+    font-size: 15px;
+}
+
+.none {
+    display: none;
+}
+
+.error {
+    border-bottom: 1px solid red;
+}
