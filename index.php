@@ -63,7 +63,7 @@ require_once "assets/api/get_bg.php";
 
 <body>
 	<?php if ($isAdmin != true && $isAssistant != true && $isColvir != true) { ?>
-		<form action="assets/api/logout.php" style="position:absolute; margin:1%;">
+		<form class="logout-form-question" action="assets/api/logout.php">
 			<button type="submit" class="logout-btn">Выйти</button>
 		</form>
 	<?php }
@@ -77,7 +77,7 @@ require_once "assets/api/get_bg.php";
 					<img src="assets/img/avatar/<?php echo $teampic; ?>.svg" height="50px" />
 					<?php echo "<h3>" . $teamname . "</h3>"; ?>
 					<a target="_blank" href="score.php?game=1">
-						<button type="button">Смотреть турнирную таблицу!</button>
+						<button type="button">Турнирная таблица</button>
 					</a>
 				</div>
 				<div class="send-answer__form__answ-container">
