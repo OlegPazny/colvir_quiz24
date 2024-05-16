@@ -818,6 +818,7 @@ input[type=file] {
   width: 70%;
   background-color: white;
   border-radius: 5px;
+  height: 25px;
 }
 
 .progress-bar {
@@ -846,6 +847,75 @@ input[type=file] {
   border: 1px solid #1163ae;
 }
 
+@media (max-width: 1440px) {
+  .score-card-container {
+    width: 30%;
+  }
+  .progress {
+    width: 85%;
+  }
+}
+@media (max-width: 1280px) {
+  .card .card-body {
+    padding: 0.8rem 1.5rem;
+  }
+  .progress {
+    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .score-card-container {
+    margin: 0;
+  }
+  .score-card-container {
+    width: 45%;
+  }
+}
+@media (max-width: 768px) {
+  .score-title {
+    font-size: 32px;
+  }
+  .score-card-container {
+    width: 80%;
+  }
+  .score-btn {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+}
+@media (max-width: 480px) {
+  .card-body h4 {
+    font-size: 0.9rem;
+  }
+  .card-body h4 img {
+    width: 10%;
+  }
+  .progress {
+    height: 15px;
+    margin-bottom: 10px;
+  }
+  .card .card-body {
+    padding: 0.5rem 1rem;
+  }
+  .team-score {
+    margin-bottom: 0 !important;
+  }
+  .score-btn {
+    font-size: 14px;
+  }
+  .card {
+    border-radius: 10px !important;
+  }
+}
+@media (max-width: 320px) {
+  .card .card-body {
+    padding-top: 0rem;
+    padding-bottom: 1.5rem;
+  }
+  .score-card-container__card {
+    margin: 10px 0 !important;
+  }
+}
 #chart svg {
   max-width: 100%;
   max-height: 100%;

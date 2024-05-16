@@ -55,13 +55,13 @@ require_once "assets/api/get_bg.php";
 										height='45px' />&nbsp;&nbsp;
 									<strong>" . $team[1] . "</strong>
 								</h4>
-								<div class='progress' style='height: 25px;'>
+								<div class='progress'>
 									<div class='progress-bar bg-success' role='progressbar'
 										style='width: " . $progressbar_width . "%' aria-valuenow='25'
 										aria-valuemin='0' aria-valuemax='" . $max_score . "'></div>
 								</div>
 								<div style='align-self:flex-start;'>
-								<h4 class='text-left'>(<strong>" . $team[2] . "</strong>)</h4>
+								<h4 class='text-left team-score'>(<strong>" . $team[2] . "</strong>)</h4>
 								</div>
 		
 							</div>
